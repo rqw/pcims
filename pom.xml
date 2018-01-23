@@ -23,6 +23,10 @@
 			<artifactId>provider-hibernate</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.haojiankang</groupId>
+			<artifactId>consumer</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>

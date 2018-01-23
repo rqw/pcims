@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: provider-hibernate
+  cloud:
+    config:
+      profile: dev
+      discovery:
+        enabled: true                                 # 默认false，设为true表示使用注册中心中的configserver配置而不自己配置configserver的uri
+        serviceId: config-server 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:
+        - http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}        # 将Instance ID设置成IP:端口的形式
