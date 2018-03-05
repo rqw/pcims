@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>定制统计查询列表</title>
+    <script src="../../static/js/modular.js" data-config="../../static/js/config.js" data-main="statistics.customerList"></script>
+	<style>
+		.ztree_cntr{
+		        height: 350px;
+	    		overflow: auto;
+	        }
+	</style>
+</head>
+<body>
+<div class="h_container">
+    <!--top 标题-->
+    <div class="h_title_top">
+        <span class="line"></span>
+        <span class="text" style="margin-right: 20px;margin-left:10px">选择定制报表</span>
+    </div>
+      <div class="btn-group" id="choice-range">
+		
+        <button type="button" class="btn btn-default dropdown-toggle option"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        	<i class="fa fa-delicious" id="choice-data"></i>
+          	<span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu">
+           <!--  <div class="list-group" id="choice-list"></div> -->
+            <div   id="choice-list"></div>
+        </ul>
+    </div>
+<!--     <button class="h_btn h_btn_blue" id="changeRport"> -->
+<!--     	<span class="fa fa-retweet">变更统计报表</span> -->
+<!--     </button> -->
+	<button class="h_btn h_btn_blue" id="btn-search">
+	        <span class="fa fa-search">查询</span>
+	</button>
+    <button class="h_btn h_btn_blue" id="downExcel">
+    	<span class="fa fa-cloud-download">下载统计报表</span>
+    </button>
+</div>
+
+<div class="h_container_top_tools">
+	<input type="hidden" name="id" id="choice-dataid" />
+    <!--输入控件 区间日期选择控件-->
+    <div class="h_input_group" >
+        <span class="word">选择日期</span>
+        <span class="input">
+            <input type="text" name="start" style="width: 80px" id="start" readonly data-select="dateselect"/>
+        </span>
+    </div>
+    <div class="h_input_group">-</div>
+	<div class="h_input_group">
+		<span class="input">
+		<input type="text" name="end" style="width: 80px" id="end" readonly data-select="dateselect"/>
+	</div>
+    
+
+
+</div>
+
+<div class="htableView">
+	<!-- 表格 -->
+	<table id="dataList" class="h_table h_table_blue">
+		<thead>
+		    <tr class="title" id="content-head" >
+		    </tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+<div class="modal-wrap">
+	<!-- 中间模块区 开始-->
+	<div class="center-wrap">
+		<!-- 机构选择标准模态 开始 -->
+        <div class="modal-frame floatbox" id="orgModal" target-draggable="false" style="width:400px">
+                <div class="left-block-blue crumb"></div>
+                <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <!-- 标题  开始-->
+                <div class="floatbox-header"><span id="tree_title"></span>机构选择</div>
+                <!-- 标题  结束-->
+
+                <hr class="splitline">
+
+                <!-- 主体  开始-->
+                <div class="floatbox-body ztree_cntr">
+                    <ul class="ztree" id="ztree"></ul>
+                </div>
+                <!-- 主体  结束-->
+
+                <hr class="splitline">
+
+                <!-- 底部条 开始 -->
+                <div class="footbar">
+                    <button type="button" data-select="btn-save-grant" class="h_btn h_btn_blue h_btn_lg orgSelectConfirm">确定</button>
+                    <button type="button" class="h_btn h_btn h_btn_lg cancel">取消</button>
+                </div>
+                <!-- 底部条 结束 -->
+		</div>
+		<!-- 标准模态 开始 -->
+	</div>
+	<!-- 中间模块区 结束-->
+</div>
+</body>
+</html>

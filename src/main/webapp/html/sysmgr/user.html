@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <script src="../../static/js/modular.js" data-config="../../static/js/config.js" data-main="sysmgr.user"></script>
+    <style>
+        body>.h_container {
+            width: 100%;
+        }
+        .h_left_container{
+        	position: fixed;
+        }
+        .h_left_container .ztree{
+        	height: 500px;
+    		overflow: auto;
+        }
+        
+        .h_left_container,.content {
+            vertical-align: top;
+        }
+        
+        .content {
+            padding-left: 265px;
+        }
+        
+        .content>.h_container {
+            border-left: 1px solid #dfe3ec;
+            border-right: 1px solid #dfe3ec;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+        }
+        
+        .h_table tr:first-child {
+            border-top: 0px;
+        }
+        
+        .doctor-info-card-whiter {
+            margin: 8px;
+        }
+        
+        .pagination-container {
+            text-align: right;
+        }
+        
+        .doctors-container {
+            position: relative;
+            top: -53px;
+            border-bottom: 1px solid #dfe3ec;
+        }
+        
+        .h_container {
+            position: relative;
+        }
+        
+        .table-container {
+            z-index: 10;
+        }
+        
+        .pageControler button {
+            border-right: 1px solid #dfe3ec;
+        }
+        
+        .pageControler .h_btn{
+            font-style: normal;
+        }
+        
+        .pageControler {
+            padding: 0px !important;
+        }
+        .cw_1{
+              width: 131px !important;
+              display: inline-block !important;
+              }
+        #example24 .floatbox-body{
+        	height:75%;
+        	overflow:auto;
+        }
+        	.h_cmselect .bootstrap-select{
+        		padding:0px !important;
+        		border:none !important;
+        	}
+    </style>
+</head>
+
+<body>
+    <div class="h_container">
+        <div class="h_left_container">
+            <!--标题 start-->
+            <div class="title">
+                <div class="h_auto_layout">
+                    <div class="wrap_content">
+                        <div class="h_input_group">
+                            <span style="padding-left: 0px">机构选择</span>
+                        </div>
+                    </div>
+                    <div class="match_parent">
+                        <div class="input-group input-group-sm search">
+                            <span class="input-group-addon fa fa-search"></span>
+                            <input type="text" id="searchLeftTree" class="form-control" placeholder="请输入查询内容..." aria-describedby="sizing-addon3">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--标题 end-->
+            <!--内容 start-->
+            <ul class="ztree" id="left_org_ztree">
+
+            </ul>
+            <!--内容 end-->
+        </div>
+        <div class="content">
+
+            <!-- 标题栏 star -->
+            <div class="pageControler">
+                <button class="active"><span data-select="title"></span>用户信息列表</button>
+                <!--输入控件 区间日期选择控件-->
+                <div class="h_input_group">
+                    <span class="word">关键字：</span>
+                    <span class="input">
+        	            <input id="searchUserTxt" placeholder="请输入要查询的用户名或帐号"/>
+                    </span>
+                </div>
+                <cite class="h_btn h_btn_green" event-select="search-user">查询</cite>
+                <cite class="h_btn h_btn_blue add" data-select="btn-add">新增</cite>
+                <cite class="h_btn h_btn_red del" data-select="btn-del" data-check>删除</cite>
+
+            </div>
+            <!-- 标题栏 end -->
+
+            <!-- 表格 star -->
+            <div class=" h_container table-container">
+                <table class="h_table h_table_blue" id="dataList">
+                    <thead>
+                        <tr class="title" style="border-top:none">
+                            <td>
+                                <button class="square-btn-all" type="button" title="全选/全不选">
+									<i class="fa fa-square-o" aria-hidden="true"></i>
+								</button>
+                            </td>
+                            <td>姓名</td>
+                            <td>帐号</td>
+                            <td>类型</td>
+                            <td>电话</td>
+                            <td>状态</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="h_container pagination-container" id="pageContainer">
+
+                </div>
+                <!--底部导航-->
+            </div>
+
+            <!-- 表格 end -->
+
+            <div class="h_container doctors-container">
+
+                <!-- 标题栏 star -->
+                <div class="pageControler">
+                    <button class="active"><span data-select="title"></span>专家信息</button>
+                </div>
+                <!-- 标题栏 end -->
+
+                <div class="h_container" style="padding-bottom:0px">
+                    <!--输入控件 普通输入控件-->
+                    <div class="h_input_group">
+                        <span class="word">快捷查询：</span>
+                        <span class="input"><input id="searchUserZj" placeholder="请输入专家姓名"/></span>
+                        <span>
+				    	<button class="h_btn h_btn_green" id="btn-search-userzj">查询</button>
+				    </span>
+                    </div>
+                </div>
+
+                <div class="h_container" id="h_container"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 添加弹框 -->
+
+    <div class="modal-wrap" id="example22">
+        <!-- 中间模块区 开始-->
+        <div class="center-wrap">
+            <!-- 标准模态 开始 -->
+            <div class="modal-frame floatbox" id="datamodal" target-draggable="false" style="width:657px">
+                <div class="left-block-blue crumb"></div>
+                <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+                <!-- 标题  开始-->
+                <div class="floatbox-header">用户信息</div>
+                <!-- 标题  结束-->
+
+                <hr class="splitline">
+
+                <!-- 主体  开始-->
+                <div class="floatbox-body">
+                    <form class="h_form form-horizontal" id="dataform">   
+	                                    <input type="hidden" name="id" id="id">
+							  
+                        <div class="row">
+                            <div class="col-sm-6">                                
+                                    <label class="col-sm-4" for="organization.name">所属机构：</label>
+                                    <div class="col-sm-6 form-group">
+								      	<input type="text" class="form-control cw_1" id="organization.name" name="organization.name" readonly="readonly" placeholder="请选择所属机构">
+	                                    <input type="hidden" name="organization.code" id="organization.code">
+	                                    <input type="hidden" name="organization.id" id="organization.id">  
+								    </div>
+								    <button class="col-sm-2 h_btn h_btn_blue" type="button" data-target="#example24">选择</button>
+								 
+                            </div>
+                        
+                        	<div class="col-sm-6">
+                            	<label class="col-sm-4" for="roles">用户角色：</label>
+							    <div class="col-sm-8 form-group h_cmselect">
+							      <select class="form-control" id="roles" name="roles[index].id"></select>
+							    </div>
+							</div>
+							
+						</div>
+						
+					    <div class="row">
+							<div class="col-sm-6 ">
+                            	<label class="col-sm-4" for="fullname">用&nbsp;户  &nbsp;名：</label>
+                                <div class="col-sm-8 form-group">                                    
+                                    <input class="form-control" id="userName" name="userName" placeholder="请输入用户名">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                            	<label class="col-sm-4" for="identifyno">身份证号：</label>
+                                <div class="col-sm-8 form-group">                                    
+                                    <input class="form-control" id="identifyno" name="identifyno" placeholder="请输入身份证号">
+                                </div>
+                            </div>
+                        </div>
+						
+					    <div class="row">
+					    
+                            <div class="col-sm-6 ">
+                            	<label class="col-sm-4" for="fullname">姓　　名：</label>
+                                <div class="col-sm-8 form-group">                                    
+                                    <input class="form-control" id="fullname" name="fullname" placeholder="请输入姓名">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                            	<label class="col-sm-4" for="sex">性　　别：</label>
+                                <div class="form-group col-sm-8">                                    
+                                    <select class="form-control" id="sex" name="sex" plugin-combox-dataDic="性别"></select>
+                                </div>
+                            </div>
+						</div>
+						
+					    <div class="row">
+                            <div class="col-sm-6">
+                            	<label class="col-sm-4" for="qq">ＱＱ号码：</label>
+                                <div class="form-group col-sm-8">                                    
+                                    <input class="form-control" id="qq" name="qq" placeholder="请输入ＱＱ号码">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                             	<label class="col-sm-4" for="flag">状　　态：</label>
+                                <div class="form-group col-sm-8">                                   
+                                    <select class="form-control" id="flag" name="flag" plugin-combox-dataDic="状态"></select>
+                                </div>
+                            </div>
+						</div>
+						
+					    <div class="row">
+
+                            
+                            <div class="col-sm-6">
+                            	<label class="col-sm-4" for="tel">电话号码：</label>
+                                <div class="form-group col-sm-8">                                    
+                                    <input class="form-control" id="tel" name="tel" placeholder="请输入电话号码">
+                                </div>
+                            </div>
+                            
+
+
+                            <div class="col-sm-6">
+                            	<label class="col-sm-4" for="properties">用户属性：</label>
+                                <div class="form-group col-sm-8">
+                                    <select class="form-control" id="properties" name="properties" plugin-combox-dataDic="用户属性"></select>
+                                </div>
+                            </div>
+						</div>
+						
+                    </form>
+                </div>
+                <!-- 主体  结束-->
+
+                <hr class="splitline">
+
+                <!-- 底部条 开始 -->
+                <div class="footbar">
+                    <button type="button" class="h_btn h_btn_blue h_btn h_btn_lg" data-select="btn-save" id="docterSave">保存并退出</button>
+                    <button type="button" class="h_btn h_btn h_btn_lg cancel">取消</button>
+                </div>
+                <!-- 底部条 结束 -->
+
+            </div>
+            <!-- 标准模态 开始 -->
+            
+              <!-- 标准模态 开始 -->
+            <div class="modal-frame floatbox" id="authorize" target-draggable="false" style="width:400px;">
+                <div class="left-block-blue crumb"></div>
+                <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <!-- 标题  开始-->
+                <div class="floatbox-header"><span id="tree_title"></span>机构授权</div>
+                <!-- 标题  结束-->
+
+                <hr class="splitline">
+
+                <!-- 主体  开始-->
+                <div class="floatbox-body" style="height:350px;overflow:auto;">
+                	<input type="hidden" id="doctorid">
+                    <ul class="ztree" id="authorize_ztree"></ul>
+                </div>
+                <!-- 主体  结束-->
+
+                <hr class="splitline">
+
+                <!-- 底部条 开始 -->
+                <div class="footbar">
+                    <button type="button" data-select="btn-save-grant" class="h_btn h_btn_blue h_btn h_btn_lg">保存</button>
+                    <button type="button" class="h_btn h_btn h_btn_lg cancel">取消</button>
+                </div>
+                <!-- 底部条 结束 -->
+
+            </div>
+            
+            <!-- 标准模态 结束 -->
+            
+        </div>
+        <!-- 中间模块区 结束-->
+
+        <!-- 右侧模块区 开始-->
+        <div class="right-wrap">
+            <!-- 标准模态 开始 -->
+            <div class="modal-frame floatbox full-tb" id="example24" target-draggable="false" style="width:400px">
+                <div class="left-block-blue crumb"></div>
+                <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+                <!-- 标题  开始-->
+                <div class="floatbox-header">选择机构</div>
+                <!-- 标题  结束-->
+
+                <hr class="splitline">
+
+                <!-- 主体  开始-->
+                <div class="floatbox-body">
+
+                    <ul class="ztree" id="right_org_ztree"></ul>
+
+                </div>
+                <!-- 主体  结束-->
+
+                <hr class="splitline">
+
+                <!-- 底部条 开始 -->
+                <div class="footbar">
+                    <button type="button" class="h_btn h_btn_lg cancel">确定</button>
+                </div>
+                <!-- 底部条 结束 -->
+
+            </div>
+            <!-- 标准模态 开始 -->
+            
+             <!-- 标准模态 开始 -->
+            <div class="modal-frame floatbox full-tb" id="pro_info" target-draggable="false" style="width:400px">
+                <div class="left-block-blue crumb"></div>
+<!--                 <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button> -->
+
+                <!-- 标题  开始-->
+                <div class="floatbox-header">专家属性</div>
+                <!-- 标题  结束-->
+
+                <hr class="splitline">
+
+                <!-- 主体  开始-->
+                <div class="floatbox-body">
+					<form class="h_form form-horizontal" id="dataform_zj">
+
+					    <div class="h_container row">
+					    	<input type="hidden" id="zj_id" name="zj_id"/>
+					        
+					        <div class="col-sm-12">
+					            <label class="col-sm-3" for=titles>职　称：</label>
+					            <div class="col-sm-9 form-group">
+					                <select class="form-control" id="titles" name="titles" plugin-combox-dataDic="专家职称"></select>
+					            </div>
+					        </div>
+					        <div class="col-sm-12">
+					            <label class="col-sm-3" for=dept>科     室：</label>
+					            <div class="col-sm-9 form-group">
+					                <input class="form-control" id="dept" name="dept"/>
+					            </div>
+					        </div>
+					        <div class="col-sm-12">
+					            <label class="col-sm-3" for=expertno>专家号：</label>
+					            <div class="col-sm-9 form-group">
+					                <input class="form-control" id="expertno" name="expertno"/>
+					            </div>
+					        </div>
+					        
+					        <div class="col-sm-12">
+					            <label class="col-sm-3" for="consultfee">咨询费：</label>
+					            <div class="col-sm-9 form-group">
+					                <input class="form-control" id="consultfee" name="consultfee"/>
+					            </div>
+					        </div>
+					        
+					        <div class="col-sm-12">
+					            <label class="col-sm-3" for="introduce">简　介：</label>
+					            <div class="col-sm-9 form-group">
+					                <textarea rows="5" class="form-control" id="introduce" name="introduce"></textarea>
+					            </div>
+					        </div>
+					        
+					     </div>
+					     
+                    </form>
+
+                </div>
+                <!-- 主体  结束
+
+                <hr class="splitline">-->
+
+                <!-- 底部条 开始 
+                <div class="footbar">
+                    <button type="button" class="h_btn h_btn_lg cancel">取消</button>
+                </div>-->
+                <!-- 底部条 结束 -->
+
+            </div>
+            <!-- 标准模态 结束-->
+        </div>
+        <!-- 右侧模块区 结束-->
+
+    </div>
+        
+    <script id="template-divv" type="text/x-handlebars-template" des="专家列表">
+        {{#each this.dataList}}
+		<div class="doctor-info-card-whiter selected">
+			<div class="avatar">
+				<img src="../../static/images/avatar_doctor_nan.png" />
+			</div>
+			<p class="name">{{doctor}}</p>
+			<p class="hospital">
+				<span class="hpl-name">{{user.organization.name}}</span>
+				<span class="hpl-area">{{dept}}</span>
+			</p>
+			<p class="remarks">{{introduce}}</p>
+			<p class="nomargin">
+				<span class="price">￥{{consultfee}}</span>
+			</p>
+			<img class="sheng" src="../../static/images/img_sheng.png">
+			<ul class="tools">
+				<li>
+					<button data-id="{{id}}"   class="docter-edit"><i class="fa fa-pencil"></i><span>编辑<span/></button>
+				</li>
+				<!--<li>
+					<button data-id="{{id}}" class="docter-del"><i class="fa fa-trash"></i><span>删除</span></button>
+				</li>-->
+ 				<li>
+            		<button  data-id="{{id}}" data-target="#authorize" class="shield" id="zj_shouq">
+                		<i  class="fa fa-shield"></i><span>授权</span>
+           			</button>
+        		</li>
+			</ul>
+		</div>
+        {{/each}}
+    </script>
+    
+    <script id="template-tbody" type="text/x-handlebars-template" >
+        {{#each this.dataList}}
+        <tr class="case-checkbox" data-id="{{id}}">
+            <td><label class="square-btn" title="选择"><i class="fa fa-square-o" aria-hidden="true" data-id="{{id}}"></i></label></td>
+            <td>{{fullname}}</td>
+            <td>{{userName}}</td>
+            <td>{{_dataDic '用户属性' properties}}</td>
+            <td>{{tel}}</td>
+            <td>{{_dataDic '状态' flag}}</td>
+            <td class="btn-ctrl-group">
+                <button class="h_link" data-select="btn-edit" data-id="{{id}}">编辑</button>
+
+				<!--|<button class="h_link" data-select="btn-del" data-id="{{id}}">删除</button> &nbsp;-->
+                <button class="h_link"  data-select="reset" data-resource="010200002" data-id="{{id}}">重置密码</button>
+				
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+</body>
+
+</html>

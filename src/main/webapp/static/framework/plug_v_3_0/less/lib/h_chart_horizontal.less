@@ -1,0 +1,50 @@
+.h_chart_horizontal{
+  display: table;
+  width: 100%;
+  background: #f7fafa;/*#ebf2f8*/;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  transition: all 0.3s linear;
+  &:first-child{
+    border-top: 1px solid #ddd;
+  }
+  .left{
+    display: table-cell;
+    vertical-align: middle;
+    width: 130px;
+    /*height: 91px;*/
+    .icon{
+      width: 100%;
+      text-align: center;
+      padding: 8px 8px 4px 8px;
+      vertical-align: middle;
+      img{
+        height: 45px;
+        max-width: 50px;
+        display: block;
+        margin: auto;
+      }
+    }
+    .title{
+      font-size: 16px;
+      color: #0188cc;
+      text-align: center;
+      width: 100%;
+      vertical-align: middle;
+      margin: 0px;
+      padding: 4px 8px 8px 8px;
+      vertical-align: middle;
+    }
+  }
+  .chart{
+    height: 108px;
+    display: table-cell;
+  }
+
+  &:hover{
+    box-shadow: 1px 1px 40px #b1b1b1;
+    position: relative;
+  }
+}

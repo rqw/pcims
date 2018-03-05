@@ -1,0 +1,47 @@
+@import "weui-border";
+.weui-alert{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;bottom: 0px;
+  overflow: auto;
+  background: rgba(125,125,125,0.5);
+  vertical-align: middle;
+  color: #333;
+  z-index: 999;
+  .alert{
+    position: relative;
+    margin: 10px 10%;
+    background: #fff;
+    border-radius: 4px;
+    .split-line{
+      height: 1px;
+      width: 100%;
+      .border-bottom(#eee)
+    }
+    .alert-header{
+      height: 35px;
+      line-height: 25px;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    .alert-body{
+      padding: 10px;
+      p.msg{
+        padding:10px
+      }
+    }
+    .alert-footer{
+      padding: 10px;
+      font-size: 0px;
+      &.choose button{
+        width: 50%;
+        background: none;
+        font-size: 14px;
+        color: #00baff;
+        height: 30px;
+        outline: none;
+      }
+    }
+  }
+}

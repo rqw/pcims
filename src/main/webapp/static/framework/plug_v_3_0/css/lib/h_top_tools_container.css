@@ -1,0 +1,9 @@
+.h_top_tools_container {
+  background: #f7fafa;
+  padding: 10px 20px;
+  border: 1px solid;
+}
+.skin-blue .h_top_tools_container {
+  background: #f7fafa;
+  border-color: #dfe3eb ;
+}

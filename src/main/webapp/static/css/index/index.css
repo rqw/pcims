@@ -1,0 +1,1211 @@
+* {
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+  font-family: 'Microsoft YaHei', Arial, 'Courier New', Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+body {
+  font-size: 62.5%;
+}
+a {
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+._hide {
+  display: none;
+}
+.skin-blue {
+  background: #d7dbe0;
+  /*top条皮肤*/
+  /*main-sidebar 展开皮肤*/
+  /* secondary-sidebar 皮肤 */
+}
+.skin-blue .topbar {
+  background: #0088cc;
+  box-shadow: 0px 0px 10px #666;
+}
+.skin-blue .topbar .split span {
+  background: #0079b5;
+  border-right-color: #00a8fc !important;
+}
+.skin-blue .topbar .title {
+  color: #fff;
+  text-shadow: 0px 1px 6px #666;
+}
+.skin-blue .main-sidebar {
+  background: #0088cc;
+  box-shadow: 0px -4px 18px #666;
+  /*一级目录皮肤*/
+  /*二级目录皮肤*/
+  /* main-sidebar 收起皮肤 */
+}
+.skin-blue .main-sidebar .one-level > li > a {
+  background: #0088cc;
+}
+.skin-blue .main-sidebar .one-level > li > a .left-icon {
+  color: #fff;
+}
+.skin-blue .main-sidebar .one-level > li > a .title {
+  color: #fff;
+}
+.skin-blue .main-sidebar .one-level > li > a .right-icon {
+  color: #fff;
+}
+.skin-blue .main-sidebar .two-level {
+  background: none;
+}
+.skin-blue .main-sidebar .two-level > li:last-child {
+  margin-bottom: 0px;
+}
+.skin-blue .main-sidebar .two-level > li > a {
+  background: none;
+}
+.skin-blue .main-sidebar .two-level > li > a .left-icon {
+  color: #fff;
+}
+.skin-blue .main-sidebar .two-level > li > a .title {
+  color: #fff;
+}
+.skin-blue .main-sidebar .two-level > li > a .right-icon {
+  color: #fff;
+}
+.skin-blue .main-sidebar .two-level > li:hover > a {
+  background: rgba(235, 243, 248, 0.5);
+}
+.skin-blue .main-sidebar .two-level > li:hover > a .left-icon {
+  color: #fff;
+}
+.skin-blue .main-sidebar .two-level > li:hover > a .title {
+  color: #fff;
+}
+.skin-blue .main-sidebar .two-level > li:hover > a .right-icon {
+  color: #fff;
+}
+.skin-blue .main-sidebar .two-level > li .active {
+  background: #ebf3f8;
+  box-shadow: 1px 1px 5px #9a9a9a inset;
+}
+.skin-blue .main-sidebar .two-level > li .active .left-icon {
+  color: #50779c;
+}
+.skin-blue .main-sidebar .two-level > li .active .title {
+  color: #344f66;
+}
+.skin-blue .main-sidebar .two-level > li .active .right-icon {
+  color: #344f66;
+}
+.skin-blue .main-sidebar.collapse {
+  /*一级目录收起皮肤*/
+  /*二级目录收起皮肤*/
+}
+.skin-blue .main-sidebar.collapse .one-level > li {
+  border-bottom-color: #0079b5 !important;
+}
+.skin-blue .main-sidebar.collapse .one-level > li > a:hover .title {
+  background: #0088cc;
+}
+.skin-blue .main-sidebar.collapse .two-level {
+  background: #0079b5;
+}
+.skin-blue .main-sidebar.collapse .two-level > li > a {
+  background: none;
+}
+.skin-blue .main-sidebar.collapse .two-level > li .active {
+  background: #ebf3f8 !important;
+}
+.skin-blue .main-sidebar.collapse .two-level > li:hover {
+  background: rgba(235, 243, 248, 0.5);
+}
+.skin-blue .main-sidebar.collapse .two-level > li:hover .active .left-icon {
+  color: #50779c;
+}
+.skin-blue .secondary-sidebar {
+  background: #ebf3f8;
+  border-color: #bdc3c7 !important;
+  /*三级目录展开皮肤*/
+  /*四级目录展开皮肤*/
+  /* secondary-sidebar 收起皮肤 */
+  /*secondary toggle按钮 皮肤*/
+}
+.skin-blue .secondary-sidebar .three-level > li > a {
+  background: #fff;
+}
+.skin-blue .secondary-sidebar .three-level > li > a .left-icon {
+  color: #50779c;
+}
+.skin-blue .secondary-sidebar .three-level > li > a .title {
+  color: #344f66;
+}
+.skin-blue .secondary-sidebar .three-level > li > a .right-icon {
+  color: #344f66;
+}
+.skin-blue .secondary-sidebar .three-level > li:hover > a {
+  background: #fff;
+}
+.skin-blue .secondary-sidebar .three-level > li:hover > a .left-icon {
+  color: #50779c;
+}
+.skin-blue .secondary-sidebar .three-level > li:hover > a .title {
+  color: #344f66;
+}
+.skin-blue .secondary-sidebar .three-level > li:hover > a .right-icon {
+  color: #344f66;
+}
+.skin-blue .secondary-sidebar .four-level > li > a {
+  background: none;
+}
+.skin-blue .secondary-sidebar .four-level > li > a .left-icon {
+  color: #50779c;
+}
+.skin-blue .secondary-sidebar .four-level > li > a .title {
+  color: #344f66;
+}
+.skin-blue .secondary-sidebar .four-level > li > a .right-icon {
+  color: #344f66;
+}
+.skin-blue .secondary-sidebar .four-level > li:hover > a {
+  background: rgba(0, 121, 181, 0.5);
+}
+.skin-blue .secondary-sidebar .four-level > li:hover > a .left-icon {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar .four-level > li:hover > a .title {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar .four-level > li:hover > a .right-icon {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar .four-level > li .active {
+  background: #0088cc;
+}
+.skin-blue .secondary-sidebar .four-level > li .active .left-icon {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar .four-level > li .active .title {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar .four-level > li .active .right-icon {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar.collapse {
+  /*三级目录收起皮肤*/
+  /*四级目录收起皮肤*/
+}
+.skin-blue .secondary-sidebar.collapse .three-level > li:hover > a {
+  background: #0088cc;
+}
+.skin-blue .secondary-sidebar.collapse .three-level > li:hover > a .left-icon {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar.collapse .three-level > li:hover > a .title {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar.collapse .three-level > li:hover > a .right-icon {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar.collapse .three-level .four-level {
+  background: #0088cc;
+  padding: 4px 0px;
+}
+.skin-blue .secondary-sidebar.collapse .three-level .four-level > li > a {
+  background: #0088cc;
+}
+.skin-blue .secondary-sidebar.collapse .three-level .four-level > li > a .left-icon {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar.collapse .three-level .four-level > li > a .title {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar.collapse .three-level .four-level > li > a .right-icon {
+  color: #fff;
+}
+.skin-blue .secondary-sidebar.collapse .four-level {
+  background: #0088cc;
+}
+.skin-blue .secondary-sidebar.collapse .four-level > li > a:hover,
+.skin-blue .secondary-sidebar.collapse .four-level > li a.active {
+  background: #fff;
+}
+.skin-blue .secondary-sidebar.collapse .four-level > li > a:hover .left-icon,
+.skin-blue .secondary-sidebar.collapse .four-level > li a.active .left-icon {
+  color: #0079b5;
+}
+.skin-blue .secondary-sidebar.collapse .four-level > li > a:hover .title,
+.skin-blue .secondary-sidebar.collapse .four-level > li a.active .title {
+  color: #0079b5;
+}
+.skin-blue .secondary-sidebar.collapse .four-level > li > a:hover .right-icon,
+.skin-blue .secondary-sidebar.collapse .four-level > li a.active .right-icon {
+  color: #0079b5;
+}
+.skin-blue .secondary-sidebar .secondary-sidebar-toggle .toggle-btn {
+  background: #bdc3c7;
+}
+.skin-blue .secondary-sidebar .secondary-sidebar-toggle .toggle-btn span {
+  color: #0088cc;
+}
+.skin-blue .secondary-sidebar .secondary-sidebar-toggle .toggle-btn:hover {
+  background: #0088cc;
+}
+.skin-blue .secondary-sidebar .secondary-sidebar-toggle .toggle-btn:hover span {
+  color: #fff;
+}
+.skin-blue .bottom-bar {
+  background: #0088cc;
+}
+.skin-blue .bottom-bar .info {
+  color: #ebf3f8;
+}
+.skin-blue .main-sidebar .two-level > li:hover > a {
+  background: #76bfe3 \0;
+}
+/*旋转变化*/
+/*宽度呼吸变化*/
+/*呼吸变化*/
+/**
+渐变动画
+@range 过渡效果的 CSS 属性的名称（动画范围） all with ...等
+        none	没有属性会获得过渡效果。
+        all	所有属性都将获得过渡效果。
+        property	定义应用过渡效果的 CSS 属性名称列表，列表以逗号分隔。
+@duration 持续时间，单位s
+@motionType 运动类型
+            linear	规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）。
+            ease	规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。
+            ease-in	规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）。
+            ease-out	规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。
+            ease-in-out	规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。
+            cubic-bezier(n,n,n,n)
+*/
+/*普通鱼眼效果*/
+/*默认鼠标经过鱼眼效果*/
+/*带渐变动画的*/
+body {
+  /*background: #d7dbe0;*/
+}
+/*标签样式*/
+.tbs_horizontal {
+  overflow: hidden;
+  position: relative;
+  padding-top: 10px;
+  font-size: 10px;
+  height: 45px;
+  padding-right: 45px;
+}
+.tbs_horizontal * {
+  transition: all 0.2s linear;
+}
+.tbs_horizontal .tab .icon {
+  margin: 0px 5px;
+  color: #666666;
+}
+.tbs_horizontal a,
+.tbs_horizontal .tab-more-btn {
+  background: #f1f4f4;
+  border-radius: 4px 4px 0px 0px;
+  list-style: none;
+  display: block;
+  float: left;
+  margin: 0px 4px;
+  position: relative;
+  padding: 6px 10px;
+  top: 7px;
+  box-shadow: 0px -2px 10px #bbb;
+  z-index: 1;
+  cursor: default;
+}
+.tbs_horizontal a:hover,
+.tbs_horizontal .tab-more-btn:hover {
+  transition: all 0.2s linear;
+  padding: 9px 10px;
+  top: 0px;
+}
+.tbs_horizontal a.active,
+.tbs_horizontal .tab-more-btn.active {
+  top: 0px;
+  padding: 8px 10px;
+  z-index: 3;
+  background: #fefefe;
+}
+.tbs_horizontal a.active .title,
+.tbs_horizontal .tab-more-btn.active .title {
+  font-size: 1.4em;
+}
+.tbs_horizontal a.active .close,
+.tbs_horizontal .tab-more-btn.active .close {
+  line-height: 14px;
+}
+.tbs_horizontal a.active .close span,
+.tbs_horizontal .tab-more-btn.active .close span {
+  font-size: 14px;
+}
+.tbs_horizontal a .title,
+.tbs_horizontal .tab-more-btn .title {
+  display: inline-block;
+  min-width: 20px;
+  color: #666666;
+  font-size: 1.2em;
+}
+.tbs_horizontal a .close,
+.tbs_horizontal .tab-more-btn .close {
+  background: none;
+  color: #bbb;
+  outline: none;
+  margin-left: 3px;
+  line-height: 12px;
+  margin-left: 10px;
+}
+.tbs_horizontal a .close span,
+.tbs_horizontal .tab-more-btn .close span {
+  font-size: 14px;
+}
+.tbs_horizontal a .close:hover,
+.tbs_horizontal .tab-more-btn .close:hover {
+  color: #c02c4b;
+}
+.tbs_horizontal .shadow {
+  display: block;
+  width: 100%;
+  height: 38px;
+  background: #ffffff;
+  box-shadow: 0px -5px 0px rgba(187, 187, 187, 0.54);
+  z-index: 2;
+  position: absolute;
+  bottom: -38px;
+  left: 0px;
+}
+.tabsbar #tab-more-btn {
+  position: absolute;
+  top: 16px;
+  right: 5px;
+  z-index: 999999;
+}
+.tabsbar .more {
+  border-radius: 4px 4px 0px 0px;
+  line-height: 0px;
+  height: 25px;
+  background: #f1f4f4 !important;
+  outline: none !important;
+}
+/*右键选项悬浮容器样式*/
+.mouse_click_optional {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 1px 4px 4px 4px;
+  padding: 8px 8px;
+  box-shadow: 0px 0px 33px #bfbfbf;
+  z-index: 998;
+  display: none;
+  font-size: 10px;
+  z-index: 999999;
+}
+.mouse_click_optional * {
+  transition: all 0.2s linear;
+}
+.mouse_click_optional i {
+  display: block;
+  padding: 6px 12px;
+  font-style: normal;
+  color: #666666;
+  text-align: left;
+  font-size: 1.2em;
+  border-radius: 2px;
+  cursor: default;
+}
+.mouse_click_optional i:hover {
+  background: #0088cc;
+  color: #fff;
+}
+/*标签悬浮容器样式*/
+.h_float_tabs_cntr {
+  width: 150px;
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  padding: 5px 5px !important;
+  display: none;
+  z-index: 9999;
+  border: 1px solid #eee;
+}
+.h_float_tabs_cntr a {
+  border-bottom: 1px #eee solid;
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px #eee solid !important;
+  border-radius: 4px;
+}
+.h_float_tabs_cntr a:hover {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.h_float_tabs_cntr a .icon {
+  color: #666;
+  font-size: 14px;
+  margin: 0px 8px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: top;
+}
+.h_float_tabs_cntr a .title {
+  color: #555;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 30px;
+  height: 30px;
+  width: 95px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.h_float_tabs_cntr a:last-child {
+  border: none;
+}
+.h_float_tabs_cntr a:hover {
+  background: #eee;
+}
+.h_float_tabs_cntr .remove span {
+  line-height: 30px;
+  height: 30px;
+  display: inline-block;
+  padding: 0px 5px;
+  font-size: 16px;
+}
+.h_float_tabs_cntr {
+  width: 150px;
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  padding: 5px 5px !important;
+  display: none;
+  z-index: 9999;
+  border: 1px solid #eee;
+}
+.h_float_tabs_cntr a {
+  border-bottom: 1px #eee solid;
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px #eee solid !important;
+  border-radius: 4px;
+}
+.h_float_tabs_cntr a:hover {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.h_float_tabs_cntr a .icon {
+  color: #333;
+  font-size: 14px;
+  margin: 0px 8px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: top;
+}
+.h_float_tabs_cntr a .title {
+  color: #333;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 30px;
+  height: 30px;
+  width: 92px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.h_float_tabs_cntr a:last-child {
+  border: none;
+}
+.h_float_tabs_cntr a:hover {
+  background: #eee;
+}
+.h_float_tabs_cntr .remove span {
+  line-height: 30px;
+  height: 30px;
+  display: inline-block;
+  padding: 0px 5px;
+  font-size: 16px;
+}
+/**
+ * 基础样式
+ **/
+.listMenu ul {
+  display: none;
+}
+.h_index_tools {
+  background: #0092db;
+  margin-bottom: 0px;
+  padding: 5px 8px;
+  text-align: right;
+  height: 45px;
+  z-index: 999;
+}
+.h_index_tools > li {
+  display: inline-block;
+  line-height: 30px;
+  height: 35px;
+  vertical-align: top;
+  margin: 0px 5px;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  /*.hoverScale(1.05,0.225s);*/
+}
+.h_index_tools > li .badge {
+  background: red;
+}
+.h_index_tools > li:hover {
+  background: #0d9de5;
+  border-radius: 4px;
+}
+.h_index_tools > li:hover > button {
+  color: #fff;
+}
+.h_index_tools > li > button {
+  color: #fff;
+  font-size: 16px;
+  background: none;
+  position: relative;
+}
+.h_index_tools > li > button i:before {
+  font-size: 17px;
+  margin: 0px 5px;
+}
+.h_index_tools > li > button i {
+  vertical-align: middle;
+}
+.h_index_tools > li.user {
+  /*width: 120px;*/
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.h_index_tools > li.user button {
+  position: relative;
+}
+.h_index_tools > li.user button i:before {
+  margin: 0px 10px;
+}
+.h_index_tools > li.user:hover {
+  box-shadow: 0 0 16px rgba(76, 76, 76, 0.5);
+}
+.h_index_tools > li.user:hover button {
+  z-index: 10;
+  width: 100%;
+  border-radius: 4px;
+  background: #0d9de5;
+  text-align: left;
+}
+.h_index_tools > li.user:hover ul {
+  display: block;
+}
+.h_index_tools > li.user ul {
+  display: none;
+  width: 160px;
+  background: #0d9de5;
+  padding: 8px;
+  margin-top: -2px;
+  box-shadow: 0 0 16px rgba(76, 76, 76, 0.5);
+  border-radius: 0px 4px 4px 4px;
+  position: relative;
+}
+.h_index_tools > li.user ul li {
+  cursor: pointer;
+  padding: 4px 8px;
+  list-style: none;
+  text-align: left;
+  color: #fff;
+  font-size: 14px;
+}
+.h_index_tools > li.user ul li span:before {
+  margin-right: 8px;
+}
+.h_index_tools > li.user ul li:hover {
+  background: #23b3fb;
+  border-radius: 4px;
+}
+.h_index_tools > li.user ul li:hover span {
+  -moz-transform: scale(1.08);
+  -webkit-transform: scale(1.08);
+  -o-transform: scale(1.08);
+  transform: scale(1.08);
+  padding-left: 10px;
+}
+.baseui {
+  /*选择框*/
+}
+* {
+  transition: width 0.2s linear;
+}
+.topbar,
+.content,
+.bottom-bar {
+  font-size: 10px;
+}
+.topbar *,
+.content *,
+.bottom-bar * {
+  margin: 0px;
+  border: 0px;
+}
+.topbar a,
+.content a,
+.bottom-bar a {
+  text-decoration: none !important;
+}
+.topbar {
+  width: 100%;
+  height: 45px;
+  position: relative;
+  z-index: 10;
+}
+.topbar .logo {
+  padding: 5px 0px 2px 10px;
+  display: inline-block;
+  width: 101px;
+  height: 45px;
+  float: left;
+}
+.topbar .logo img {
+  height: 33px;
+}
+.topbar .split {
+  width: 28px;
+  display: inline-block;
+  padding: 9px 14px;
+  height: 45px;
+  float: left;
+}
+.topbar .split span {
+  width: 2px;
+  height: 27px;
+  display: inline-block;
+  border-right: 1px solid;
+}
+.topbar .title {
+  display: inline-block;
+  height: 45px;
+  float: left;
+  letter-spacing: 2px;
+  line-height: 45px;
+  font-size: 1.9em;
+}
+.topbar .title:after {
+  content: "";
+  clear: both;
+}
+.content {
+  display: table;
+  position: absolute;
+  top: 45px;
+  bottom: 30px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+}
+.content .main-sidebar {
+  display: table-cell;
+  width: 175px;
+  vertical-align: top;
+  height: 100%;
+  position: relative;
+  z-index: 9999;
+  transition: all 0.2s linear;
+  /*main-sidebar 切换按钮*/
+  /*一级目录展开布局*/
+  /*二级目录展开布局*/
+  /*收起*/
+}
+.content .main-sidebar * {
+  transition: all 0.2s linear;
+}
+.content .main-sidebar .toggle {
+  display: block;
+  width: 100%;
+  height: 35px;
+  margin-top: 5px;
+}
+.content .main-sidebar .toggle .toggle-btn {
+  width: 45px;
+  height: 35px;
+  background: none;
+  float: right;
+  outline: none;
+}
+.content .main-sidebar .toggle .toggle-btn span {
+  font-size: 2.1em;
+  color: #fff;
+}
+.content .main-sidebar .one-level {
+  list-style: none;
+  /*height: 100%;*/
+}
+.content .main-sidebar .one-level > li {
+  width: 100%;
+}
+.content .main-sidebar .one-level > li > a {
+  display: block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px 0px 0px 4px;
+}
+.content .main-sidebar .one-level > li > a span {
+  font-size: 1.6em;
+}
+.content .main-sidebar .one-level > li > a .left-icon {
+  width: 30px;
+  text-align: center;
+  font-size: 2.0em;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: top;
+}
+.content .main-sidebar .one-level > li > a .title {
+  display: inline-block;
+  width: 100px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.content .main-sidebar .one-level > li > a .right-icon {
+  transition: none;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: top;
+  display: inline-block;
+}
+.content .main-sidebar .two-level {
+  list-style: none;
+  padding: 10px 0px 10px 0px;
+  transition: all 0s linear;
+}
+.content .main-sidebar .two-level > li {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.content .main-sidebar .two-level > li:hover > a {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.content .main-sidebar .two-level > li > a {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 28px;
+  line-height: 28px;
+  padding-left: 8px;
+  padding-right: 4px;
+  margin-left: 25px;
+  border-radius: 4px 0px 0px 4px;
+}
+.content .main-sidebar .two-level > li > a span {
+  font-size: 1.3em;
+}
+.content .main-sidebar .two-level > li > a .left-icon {
+  font-size: 1.60em;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: top;
+}
+.content .main-sidebar .two-level > li > a .title {
+  display: inline-block;
+  width: 112px;
+  padding-left: 8px;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: top;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.content .main-sidebar .two-level > li > a .right-icon {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: top;
+}
+.content .main-sidebar .two-level > li > ul {
+  margin-top: 6px;
+}
+.content .main-sidebar.collapse {
+  width: 45px;
+  /*overflow: hidden;*/
+  /*一级目录收起布局*/
+  /*二级目录收起布局*/
+  /*收起时候鼠标经过 显示标签内容*/
+}
+.content .main-sidebar.collapse .one-level {
+  width: 45px;
+}
+.content .main-sidebar.collapse .one-level > li {
+  border-bottom: 1px solid;
+  transition: width 0s linear;
+}
+.content .main-sidebar.collapse .one-level > li > a {
+  height: 40px;
+  padding: 0px;
+  position: relative;
+}
+.content .main-sidebar.collapse .one-level > li > a .left-icon {
+  width: 45px;
+  text-align: center;
+}
+.content .main-sidebar.collapse .one-level > li > a .title {
+  display: none;
+}
+.content .main-sidebar.collapse .one-level > li > a .right-icon {
+  display: none;
+  font-size: 0px;
+  color: #0088cc;
+}
+.content .main-sidebar.collapse .one-level > li > a:hover .left-icon {
+  -moz-transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transform: scale(1.3);
+}
+.content .main-sidebar.collapse .one-level > li > a:hover .title {
+  position: absolute;
+  top: 0px;
+  left: 45px;
+  border-radius: 0px 4px 4px 0px;
+  display: inline-table;
+  padding-right: 10px;
+  width: auto;
+}
+.content .main-sidebar.collapse .two-level {
+  margin-left: 0px;
+  padding: 0px;
+  /*#7fbbda*/
+}
+.content .main-sidebar.collapse .two-level > li {
+  margin-bottom: 0px;
+}
+.content .main-sidebar.collapse .two-level > li > a {
+  margin-left: 0px;
+  padding: 0px;
+  height: 35px;
+}
+.content .main-sidebar.collapse .two-level > li > a span {
+  height: 35px;
+  line-height: 35px;
+}
+.content .main-sidebar.collapse .two-level > li > a .left-icon {
+  width: 45px;
+  text-align: center;
+}
+.content .main-sidebar.collapse .two-level > li > a .title {
+  display: none;
+}
+.content .main-sidebar.collapse .two-level > li > a .right-icon {
+  display: none;
+}
+.content .main-sidebar.collapse .two-level > li.active {
+  box-shadow: 1px 1px 5px #919191 inset;
+}
+.content .main-sidebar.collapse .show_hover > li > a {
+  width: 45px !important;
+}
+.content .main-sidebar.collapse .show_hover > li:hover > a > .left-icon {
+  -moz-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+}
+.content .main-sidebar.collapse .show_hover > li:hover > a > .title {
+  position: absolute;
+  top: 0px;
+  left: 45px;
+  background: #0088cc;
+  border-radius: 0px 4px 4px 0px;
+  display: inline-table;
+  padding-right: 10px;
+  width: auto;
+}
+.content .main-sidebar:hover {
+  box-shadow: 0px -4px 56px #333;
+}
+.content .secondary-sidebar {
+  position: relative;
+  display: table-cell;
+  width: 174px;
+  vertical-align: top;
+  border-right: 4px solid;
+  -webkit-box-shadow: 1px 0px 1px 0px #999D9E;
+  transition: all 0.2s linear;
+  z-index: 999;
+  /*三级目录展开布局*/
+  /*四级目录展开布局*/
+  /*收缩样式*/
+}
+.content .secondary-sidebar .three-level {
+  list-style: none;
+  padding: 10px 0px 10px 0px;
+}
+.content .secondary-sidebar .three-level > li {
+  width: 100%;
+  margin-top: 8px;
+}
+.content .secondary-sidebar .three-level > li > a {
+  display: block;
+  width: 154px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 8px;
+  padding-right: 4px;
+  margin-left: 10px;
+  border-radius: 4px;
+  display: table;
+}
+.content .secondary-sidebar .three-level > li > a span {
+  font-size: 1.4em;
+  vertical-align: top;
+  height: 30px;
+  line-height: 30px;
+  display: table-cell;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.content .secondary-sidebar .three-level > li > a .left-icon,
+.content .secondary-sidebar .three-level > li > a .title.right-icon {
+  vertical-align: top;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.content .secondary-sidebar .three-level > li > a .left-icon {
+  min-width: 16px;
+  width: 21px;
+}
+.content .secondary-sidebar .three-level > li > a .title {
+  width: 100px;
+  padding-left: 8px;
+}
+.content .secondary-sidebar .four-level {
+  list-style: none;
+  padding-top: 6px;
+}
+.content .secondary-sidebar .four-level > li {
+  width: 100%;
+  margin-bottom: 4px;
+}
+.content .secondary-sidebar .four-level > li > a {
+  display: table;
+  width: 154px;
+  height: 28px;
+  padding-left: 32px;
+  /*自行添加代码*/
+  margin-left: 10px;
+  padding-right: 4px;
+  border-radius: 4px;
+}
+.content .secondary-sidebar .four-level > li > a span {
+  font-size: 1.4em;
+}
+.content .secondary-sidebar .four-level > li > a .left-icon,
+.content .secondary-sidebar .four-level > li > a .title,
+.content .secondary-sidebar .four-level > li > a .right-icon {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  height: 28px;
+  line-height: 28px;
+}
+.content .secondary-sidebar .four-level > li > a .left-icon {
+  margin-right: 4px;
+  font-size: 1.0em;
+  vertical-align: baseline;
+  display: table-cell;
+}
+.content .secondary-sidebar .four-level > li > a .title {
+  display: table-cell;
+  width: 90px;
+}
+.content .secondary-sidebar .four-level > li > a .right-icon {
+  display: table-cell;
+}
+.content .secondary-sidebar.collapse {
+  width: 45px;
+  /*三级目录收起布局*/
+  /*四级目录收起布局*/
+  /*
+        width: 0px;
+        left: 45px;
+        overflow: hidden;
+        padding-top: 0px;
+        display: none;
+        >li{
+          width: 0px;
+          >a{
+            width: 0px;
+            >a{
+              width: 0px;
+              >span{
+                width: 0px;
+              }
+              .left-icon,.title,.right-icon{
+                width: 0px;
+              }
+            }
+          }
+        }
+      }
+      */
+}
+.content .secondary-sidebar.collapse .three-level {
+  width: 45px;
+}
+.content .secondary-sidebar.collapse .three-level > li {
+  height: 35px;
+  margin-top: 0px;
+}
+.content .secondary-sidebar.collapse .three-level > li > a {
+  width: 100%;
+  margin-left: 5px;
+  padding-left: 10px;
+  width: 35px;
+  height: 35px;
+  background: none;
+}
+.content .secondary-sidebar.collapse .three-level > li > a .left-icon {
+  /*vertical-align: baseline;*/
+}
+.content .secondary-sidebar.collapse .three-level > li > a .title {
+  width: 0px;
+  display: none;
+}
+.content .secondary-sidebar.collapse .three-level > li > a .right-icon {
+  width: 0px;
+  display: none;
+}
+.content .secondary-sidebar.collapse .three-level > li .four-level {
+  display: none !important;
+}
+.content .secondary-sidebar.collapse .three-level > li .four-level > li > a {
+  padding-left: 10px;
+}
+.content .secondary-sidebar.collapse .three-level > li .four-level > li > a .title {
+  width: auto;
+  padding-left: 5px;
+}
+.content .secondary-sidebar.collapse .three-level > li:hover * {
+  transition: width 0s linear !important;
+}
+.content .secondary-sidebar.collapse .three-level > li:hover > a {
+  width: 215px;
+  border-radius: 4px 4px 0px 4px;
+}
+.content .secondary-sidebar.collapse .three-level > li:hover > a > .title {
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
+  display: table-cell;
+  padding-left: 16px;
+}
+.content .secondary-sidebar.collapse .three-level > li:hover .four-level {
+  position: relative;
+  left: 45px;
+  display: block !important;
+  width: 175px;
+  border-radius: 0px 0px 4px 4px;
+  display: block;
+}
+.content .secondary-sidebar.collapse .three-level > li:hover .four-level > li {
+  width: 100%;
+}
+.content .secondary-sidebar.collapse .four-level {
+  display: none;
+}
+.content .secondary-sidebar:hover {
+  box-shadow: 4px 0px 15px #aaa;
+  /*padding-left: 3px;*/
+}
+.content .secondary-sidebar > .secondary-sidebar-toggle {
+  display: block;
+  width: 18px;
+  position: absolute;
+  top: 48%;
+  right: -22px;
+  /*toggle buttom 样式*/
+}
+.content .secondary-sidebar > .secondary-sidebar-toggle .toggle-btn {
+  vertical-align: baseline;
+  background: #bdc3c7;
+  height: 35px;
+  outline: none;
+  padding: 5px 5px 5px 5px;
+  border-radius: 0px 4px 4px 0px;
+}
+.content .secondary-sidebar > .secondary-sidebar-toggle .toggle-btn span {
+  width: 7.5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  /*transform:rotate(0deg);*/
+}
+.content .secondary-sidebar > .secondary-sidebar-toggle .toggle-btn:hover {
+  padding-left: 5px;
+}
+.content .secondary-sidebar > .secondary-sidebar-toggle .toggle-btn:hover span {
+  /*transform:rotate(360deg);*/
+  width: 15px;
+}
+.content .main-content {
+  position: relative;
+  z-index: 1;
+}
+.content .main-content .tabsbar {
+  height: 45px;
+}
+.content .main-content .main-iframe {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 45px;
+  /*padding-top: 45px;*/
+}
+.content .main-content .main-iframe iframe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.bottom-bar {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  display: block;
+  height: 30px;
+}
+.bottom-bar .info {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 1.2em;
+  text-align: center;
+}

@@ -1,0 +1,24 @@
+.menu(@backgroundColor,@leftIconColor,@wordColor,@rightIconColor){
+  background:@backgroundColor;
+  & .left-icon{
+    color:@leftIconColor;
+  }
+  & .title{
+    color:@wordColor;
+  }
+  & .right-icon{
+    color:@rightIconColor;
+  }
+}
+
+.alpha(@alpha){
+  filter:alpha(Opacity=@alpha);
+  -moz-opacity:@alpha;
+  opacity: @alpha;
+}
+
+.onceLine(){
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}

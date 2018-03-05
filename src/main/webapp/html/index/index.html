@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+<link rel="icon" href="../../static/images/logo.ico" type="image/x-icon" />
+    <title data-name="sys.name">私人诊所信息管理系统</title>
+    <script src="../../static/js/modular.js" data-config="../../static/js/config.js" data-main="index.index"></script>
+<style>
+.one-level >li >a span{
+	font-size:15px !important
+}
+.two-level span{
+	font-size:13px !important;
+}
+</style>
+</head>
+<body class="skin-blue">
+
+<!--top sidebar start-->
+<div class="topbar">
+    <div class="logo">
+        <img src="../../static/images/index_logo.png">
+    </div>
+    <div class="split">
+        <span></span>
+    </div>
+    <span class="title" data-name="sys.name">私人诊所信息管理系统</span>
+    
+    <ul class="h_index_tools">
+	    <li class="hide"><button><i class="fa fa-bell"></i><span class="badge"></span></button></li>
+	    <li class="user">
+	        <button><i class="fa fa-user" data-name="username"></i><i class="fa fa-caret-down"></i></button>
+	        <ul>
+	            <li id="btn-modifypwd"><span class="fa fa-edit">修改密码</span></li>
+	            <li id="btn-loginout"><span class="fa fa-power-off">注销</span></li>
+	        </ul>
+	    </li>
+	    <li class="hide"><button><i class="fa fa-question-circle"></i></button></li>
+	</ul>
+    
+</div>
+<!--top sidebar end-->
+
+<!--content start-->
+<div class="content">
+
+ <!--left main menum sidebar start-->
+    <div class="main-sidebar">
+        <div class="toggle">
+            <button class="toggle-btn">
+                <span class="fa fa-outdent"></span>
+            </button>
+        </div>
+        <ul data-name="listMenu" class="one-level listMenu" id="leftTreeContainer"></ul>
+    </div>
+
+    <!--iframe block start-->
+    <div class="main-content">
+        <div class="tabsbar" style="height:45px">
+            <div class="tbs_horizontal" id="horizontal-tabs-container">
+                <div class="shadow"></div>
+            </div>
+            <!-- more 模块 -->
+		    <div class="dropdown" style="display: none" id="tab-more-btn">
+		        	<!-- more 按钮 -->
+		            <button class="btn btn-default dropdown-toggle more" type="button" id="dropdownMenu1" data-toggle="dropdown">
+		                ···
+		            </button>
+		            <!-- more容器  -->
+		            <ul class="dropdown-menu dropdown-menu-right tab-list h_float_tabs_cntr" role="menu"   role="menu" aria-labelledby="dropdownMenu1"  id="tab-more-container">
+		            </ul>
+		        </div>
+		        
+        </div>
+        <div class="main-iframe" id="main-iframe">
+
+        </div>
+    </div>
+    <!--iframe block end-->
+
+
+
+</div>
+
+
+
+
+<!--bottom sidebar start-->
+<div class="bottom-bar">
+    <span class="info">技术支持：任奇炜</span>
+</div>
+<!--bottom sidebar end-->
+<!-- 修改密码开始 -->
+<div>
+			<div class="modal fade" id="datamodal" >
+			       <form id="dataform" method="post"  class="form-horizontal" action="">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			        <h4 class="modal-title">修改密码</h4>
+			      </div>
+			      <div class="modal-body" >
+						<div class="form-group" >
+							<div class="form-group-input" >
+								<label for="oldpwd" class="col-xs-3 control-label">原密码：</label>
+								<div class="col-xs-5">
+									<input id="oldpwd" autocomplete="off" type="password"  name="oldpwd" class="form-control" placeholder="请输入原始密码"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group-input">
+								<label for="newpwd" class="col-xs-3 control-label">新密码：</label>
+								<div class="col-xs-5">
+									<input id="newpwd" autocomplete="off" type="password" name="newpwd" class="form-control" placeholder="请输入新密码"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group-input">
+								<label for="newpwd2" class="col-xs-3 control-label">确认密码：</label>
+								<div class="col-xs-5">
+									<input id="newpwd2" autocomplete="off" type="password"  name="newpwd2" class="form-control" placeholder="请输再次输入新密码"/>
+								</div>
+							</div>
+						</div>
+			      </div>
+			      
+				<div class="modal-footer">
+		                <div class="form-group" style="text-align:center">
+		                    <button type="button" id="submit"  class="btn btn-success"  >
+					        	确认
+					        </button>
+					        <button type="button" class="btn btn-info" data-dismiss="modal">
+					        	取消
+					        </button>
+		                </div>
+			     </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+		            </form>
+			</div><!-- /.modal -->
+		</div>	
+<!-- 修改密码结束 -->
+
+<!--悬浮url选择器-->
+<script id="leftTree" type="text/x-handlebars-template">
+              {{#each this}}
+			 <li>
+                <a  class="node">                   
+ 					<span class="left-icon fa {{icon}}"></span>		
+                    <span class="title">{{name}}</span>
+                    <span class="right-icon fa fa-angle-right"></span>
+                </a>
+
+                <ul class="two-level show_hover">
+				{{#each sons}}
+                    <li>
+                        <a data-options="{{json}}" data-id="{{this.id}}">
+                            <span class="left-icon fa {{icon}}"></span>							
+                            <span class="title">{{name}}</span>
+                        </a>
+                    </li>
+				{{/each}}
+                </ul>
+
+            </li>
+              {{/each}}
+		
+
+
+          </script>
+</body>
+</html>

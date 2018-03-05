@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1, user-scalable=no" />
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../static/js/modular.js" data-config="../../static/js/config.js" data-main="index.welcome"></script>
+    <style>
+        .empty{
+            width:0px!important;
+            padding:0px!important;
+            border:0px!important;
+            margin:0px!important;
+        }
+        .table-customer .row{
+            background: #dff0d8;
+            margin-top:1px;
+        }
+
+    </style>
+</head>
+<body  class="container-fluid">
+    <div class="row" id="page-1">
+        <div class="col-md-4">
+            <form id="personForm">
+                <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">病人记录
+                        <button type="reset" id="personClear" class="btn btn-success btn-xs pull-right" >新增</button>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                        <div class="input-group hide">
+                            <span class="input-group-addon" id="person-id">标识</span>
+                            <input type="text" name="id" id="personId" class="form-control" placeholder="病人唯一标识" aria-describedby="person-id" disabled>
+                            <input type="hidden" name="lastTime" id="personLastTime" class="form-control" >
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="person-name">姓名</span>
+                            <input type="text" name="name" id="personName" class="form-control" placeholder="输入病人姓名" aria-describedby="person-name">
+                            <!--<span class="input-group-addon" id="person-pym">拼音码</span>-->
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="input_sex">男</span>
+                                    <input name="sex" class="input_sex" type="hidden" value="1">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascritp:void(0)" data-value="1" data-select=".input_sex" data-class="option">男</a></li>
+                                    <li><a href="javascritp:void(0)" data-value="2" data-select=".input_sex" data-class="option">女</a></li>
+                                </ul>
+                            </div>
+                            <input type="text" name="pym" id="personPym" class="form-control" placeholder="输入拼音码" aria-describedby="person-pym">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="person-age">年龄</span>
+                            <input plugin-input="number" type="text" name="age" id="personAge" class="form-control" placeholder="输入年龄" aria-describedby="person-age" >
+                            <span class="input-group-addon" id="person-birthday">生日</span>
+                            <input type="text" name="birthday" id="personBirthday" class="form-control" data-component="datetimepicker" data-options="startView:3" placeholder="点击选择生日" aria-describedby="person-birthday">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="person-phone">电话</span>
+                            <input type="text" name="phone" id="personPhone" class="form-control" placeholder="输入电话" aria-describedby="person-phone" >
+                            <span class="input-group-addon" id="person-remark">备注</span>
+                            <input type="text" name="remark" id="personRemark" class="form-control" placeholder="输入备注" aria-describedby="person-remark">
+                        </div>
+                            <button type="button" id="personSave" class="btn btn-primary col-md-12" >保存病人信息</button>
+                </div>
+            </div>
+            </form>
+            <form id="diagnoseForm">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">诊断记录
+                            <button type="reset" id="diagnoseClear" class="btn btn-success btn-xs pull-right" >新增</button>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                            <div class="input-group hide">
+                                <span class="input-group-addon" id="diagnose-id">标识</span>
+                                <input type="text" name="id" id="diagnoseId" class="form-control" placeholder="诊断记录唯一标识" aria-describedby="diagnose-id" disabled>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="diagnose-time">时间</span>
+                                <input type="text" name="diagnoseTime" id="diagnoseTime" data-component="datetimepicker" data-options="todayHighlight:true,format:'yyyy-mm-dd hh:mm:ss',todayBtn:'linked',minView:0"  class="form-control form_datetime" placeholder="点击选择诊断时间" aria-describedby="diagnose-time">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="diagnose-symptom">症状</span>
+                                <input type="text" name="symptom" id="diagnoseSymptom" class="form-control" placeholder="输入症状" aria-describedby="diagnose-symptom">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="diagnose-name">疾病</span>
+                                <input type="text" name="disease.name" id="diagnoseName" class="form-control" placeholder="输入疾病名称" aria-describedby="diagnose-name" disabled>
+                                <input type="hidden" name="disease.id" id="diagnoseDiseaseId" class="form-control" >
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="button" id="disease_choice">选择</button>
+                                </span>
+                            </div>
+                            <button type="button" id="showCheckInfo" class="btn btn-info col-md-12" >显示体征检查信息</button>
+                            <div class="input-group" data-select="checkInfo" >
+                                <span class="input-group-addon" id="diagnose-left">左边</span>
+                                <div class="input-group">
+                                    <input plugin-input="number" type="text" name="spLeft" class="form-control" placeholder="收缩压" >
+                                    <span class="input-group-addon" >/</span>
+                                    <input plugin-input="number" type="text" name="dpLeft"  class="form-control" placeholder="舒张压"  >
+                                    <span class="input-group-addon" >-</span>
+                                    <input plugin-input="number" type="text" name="hrLeft"  class="form-control" placeholder="心率"  >
+                                </div>
+                                <div class="input-group">
+                                    <input plugin-input="number" type="text" name="spLeft2" class="form-control" placeholder="收缩压" >
+                                    <span class="input-group-addon" >/</span>
+                                    <input plugin-input="number" type="text" name="dpLeft2"  class="form-control" placeholder="舒张压"  >
+                                    <span class="input-group-addon" >-</span>
+                                    <input plugin-input="number" type="text" name="hrLeft2"  class="form-control" placeholder="心率"  >
+                                </div>
+                                <div class="input-group">
+                                    <input plugin-input="number" type="text" name="spLeft3" class="form-control" placeholder="收缩压" >
+                                    <span class="input-group-addon" >/</span>
+                                    <input plugin-input="number" type="text" name="dpLeft3"  class="form-control" placeholder="舒张压"  >
+                                    <span class="input-group-addon" >-</span>
+                                    <input plugin-input="number" type="text" name="hrLeft3"  class="form-control" placeholder="心率"  >
+                                </div>
+                            </div>
+                            <div class="input-group" data-select="checkInfo" >
+                                <span class="input-group-addon" >右边</span>
+                                <div class="input-group">
+                                    <input plugin-input="number" type="text" name="spRight"  class="form-control" placeholder="收缩压"  >
+                                    <span class="input-group-addon" >/</span>
+                                    <input plugin-input="number" type="text" name="dpRight"  class="form-control" placeholder="舒张压"  >
+                                    <span class="input-group-addon" >-</span>
+                                    <input plugin-input="number" type="text" name="hrRight"  class="form-control" placeholder="心率"  >
+                                </div>
+                                <div class="input-group">
+                                    <input plugin-input="number" type="text" name="spRight2"  class="form-control" placeholder="收缩压"  >
+                                    <span class="input-group-addon" >/</span>
+                                    <input plugin-input="number" type="text" name="dpRight2"  class="form-control" placeholder="舒张压"  >
+                                    <span class="input-group-addon" >-</span>
+                                    <input plugin-input="number" type="text" name="hrRight2"  class="form-control" placeholder="心率"  >
+                                </div>
+                                <div class="input-group">
+                                    <input plugin-input="number" type="text" name="spRight3"  class="form-control" placeholder="收缩压"  >
+                                    <span class="input-group-addon" >/</span>
+                                    <input plugin-input="number" type="text" name="dpRight3"  class="form-control" placeholder="舒张压"  >
+                                    <span class="input-group-addon" >-</span>
+                                    <input plugin-input="number" type="text" name="hrRight3"  class="form-control" placeholder="心率"  >
+                                </div>
+                            </div>
+                            <button type="button" id="hideCheckInfo" class="btn btn-info col-md-12" >隐藏体征检查信息</button>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="diagnose-cost">收费</span>
+                                <input type="text" name="cost" id="diagnoseCost" class="form-control" placeholder="收费金额(元)" aria-describedby="diagnose-cost">
+                            </div>
+                            <button type="button" id="diagnoseSave" class="btn btn-primary col-md-12" >保存诊断信息</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">开药记录
+                        <button type="button" class="btn btn-success btn-xs pull-right add" data-toggle="modal" data-target="#prescriptionInfoChoiceModal">新增</button>
+                        <span id="selectedDisease" class="hide"></span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form id="prescriptionUseListForm">
+                        <table class="table table-condensed table-hover table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>处方名称</th>
+                                    <th>用量</th>
+                                    <th>总价</th>
+                                    <th>备注</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" >
+            <ul id="tabs" class="nav nav-tabs">
+                <li data-target="personList" id="tab_person"><a href="javascript:void(0);">病人信息列表</a></li>
+                <li data-target="diagnoseList" id="tab_diagnose"><a href="javascript:void(0);">诊断信息列表</a></li>
+                <li data-target="diseaseList" id="tab_disease"><a href="javascript:void(0);">疾病信息列表</a></li>
+            </ul>
+            <div class="panel panel-default" style="border-top:0px;border-radius:0 0px 1px 1px;">
+                <div class="panel-body">
+                    <div id="personList" class="tabs-body" >
+                        <div id="person_toolbar" class="btn-group">
+                            <div class="btn-group">
+                                <input type="text" name="name" id="personSearch" class="form-control" placeholder="姓名、拼音码" aria-describedby="person-search">
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" id="btn-personSearch" class="btn btn-primary " >查询</button>
+                            </div>
+
+                        </div>
+                        <table id="table_persons"></table>
+                    </div>
+                    <div id="diagnoseList" class="tabs-body" >
+                        <div id="diagnose_toolbar" class="btn-group">
+                            <div class="btn-group">
+                                <input type="text" name="name" id="diagnoseSearch" class="form-control" placeholder="姓名、拼音码" aria-describedby="person-search">
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" id="btn-diagnoseSearch" class="btn btn-primary " >查询</button>
+                            </div>
+                        </div>
+                        <table id="table_diagnose"></table>
+                    </div>
+                    <div id="diseaseList" class="tabs-body" >
+                        <div id="disease_toolbar" class="btn-group">
+                            <div class="btn-group">
+                                <input type="text" name="name" id="diseaseSearch" class="form-control" placeholder="疾病名称、拼音码" >
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" id="btn-diseaseSearch" class="btn btn-primary " >查询</button>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" id="btn-diseaseAdd" class="btn btn-info" data-toggle="modal" data-target="#diseaseModal" >新增</button>
+                            </div>
+                        </div>
+                        <table id="table_disease"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="diseaseModal" tabindex="-1" role="dialog" aria-labelledby="diseaseModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="diseaseModalLabel">疾病信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="diseaseForm">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                  <span class="input-group-addon" >疾病名称</span>
+                                  <input type="text" name="name" id="diseaseName" class="form-control" placeholder="请输入疾病名称">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                  <span class="input-group-addon" >拼音码<span style="visibility: hidden;">中</span></span>
+                                  <input type="text" name="pym" id="diseasePym" class="form-control" placeholder="请输入拼音码">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon" >描述<span style="visibility: hidden;">中中</span></span>
+                                    <textarea name="describe" class="form-control" placeholder="疾病描述"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="diseaseSave">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="prescriptionInfoModal" class="modal fade" tabindex="-1" role="dialog" >
+        <div class="modal-dialog modal-lg" role="document" style="width:1280px;">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" >处方信息</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row" id="drugPage1">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">处方信息
+                                        <button type="reset" id="prescriptionInfoClear" class="btn btn-success btn-xs pull-right" >新增</button>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form id="prescriptionInfoForm">
+                                        <div class="input-group hide">
+                                            <span class="input-group-addon" >标识</span>
+                                            <input type="text" name="id" id="prescriptionId" class="form-control" placeholder="处方唯一标识"  disabled>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" >名称</span>
+                                            <input type="text" name="name" id="prescriptionInfoName" class="form-control" placeholder="输入处方名称" >
+                                            <span class="input-group-addon">用量</span>
+                                            <input plugin-input="number" type="text" name="cnt"  class="form-control" placeholder="用量"  >
+                                            <span class="input-group-addon">总价</span>
+                                            <input type="text" name="cost" id="prescriptionInfoCost" class="form-control" placeholder="总价" >
+                                            <span class="input-group-addon" >备注</span>
+                                            <input type="text" name="remark"  class="form-control" placeholder="输入备注" >
+                                            <div class="input-group-btn">
+                                                <button type="button" id="drugInfoSave" class="btn btn-primary col-md-12" >保存信息</button>
+                                            </div>
+                                            <div class="input-group-btn">
+                                                <button type="button" id="showDrugPage2" class="btn btn-info col-md-12" >药品清单</button>
+                                            </div>
+                                        </div>
+                                        <button type="button" id="prescriptionInfoSave" class="btn btn-primary col-md-12 hide" >保存处方信息</button>
+                                    </form>
+                                    <div class="row" style="margin-top:15px;padding:0px 10px 0px 15px;">
+                                        <form id="drugInfoForm">
+
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div id="drugList"  >
+                                    <div id="drug_toolbar" class="btn-group">
+                                        <div class="btn-group">
+                                            <input type="text" name="name" id="drugSearch" class="form-control" placeholder="药品名称、拼音码" >
+                                        </div>
+                                        <div class="btn-group hide">
+                                            <button type="button" id="btn-drugSearch" class="btn btn-primary " >查询</button>
+                                        </div>
+                                    </div>
+                                    <table id="table_drug"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row" id="drugPage2" style="display:none;">
+                        <div class="col-md-12" >
+                            <table class="table table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>总份数</th>
+                                        <th colspan="5" id="drugCnt"></th>
+                                        <th>总价格</th>
+                                        <th colspan="5" id="drugCost"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>药品名称</th>
+                                        <th>用量</th>
+                                        <th>总量</th>
+                                        <th>单价</th>
+                                        <th>总价</th>
+                                        <th>位置编号</th>
+                                        <th>药品名称</th>
+                                        <th>用量</th>
+                                        <th>总量</th>
+                                        <th>单价</th>
+                                        <th>总价</th>
+                                        <th>位置编号</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <button type="button" id="showDrugPage1" class="btn btn-info col-md-12" >返回</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="prescriptionInfoChoiceModal" class="modal fade" tabindex="-1" role="dialog" >
+        <div class="modal-dialog modal-lg" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" >选择处方</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row" >
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <table id="table_prescriptionInfoChoice" class="table table-hover table-bordered table-striped">
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <span class="hide">{}</span>
+                    <button type="button" class="btn btn-info" data-select="newPre" data-dismiss="modal" data-toggle="modal" data-target="#prescriptionInfoModal">新处方</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- shiro自带的缓存管理器ehcache实现 -->
+<!-- 	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"> -->
+<!--     	<property name="cacheManagerConfigFile" value="classpath:/conf/ehcache-shiro.xml"/> -->
+<!--     </bean> -->
+
+	<!-- spring自带的缓存管理器ehcache实现，这样shiro和spring可以使用共同的cache管理 -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+    	<property name="cacheManager">
+    		<bean class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+    			p:configLocation="classpath:/context/ehcache.xml"/>
+    	</property>
+    </bean>
+</beans>

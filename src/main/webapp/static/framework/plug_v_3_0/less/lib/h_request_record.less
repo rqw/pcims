@@ -1,0 +1,101 @@
+/*平台默认样式 如果要适应其他内容，可以重写这块代码 start*/
+.h_request_record_td{
+  position: relative;
+}
+.record_active{
+  background: #f7fafa;
+}
+.h_request_record{
+  /*position: absolute;
+  left: 0px;
+  right: 0px;
+  top:32px;
+  display: none;*/
+}
+/*默认样式 end*/
+.h_request_record{
+     font-size: 12px;
+     /*background: #f7fafa;*/
+     color: #333;
+     /*border: 1px solid #e0e0e0;*/
+     z-index: 99;
+  .h_container{
+      /* border-top:1px solid #e0e0e0;*/
+    }
+  .header{
+    background: #f7fbfc;
+    height: 35px;
+    line-height: 35px;
+    padding: 0px 12px;
+    .icon{
+      color: #0093db;
+      font-size:16px;
+      font-weight: bold;
+      margin-right: 12px;
+    }
+    .close{
+      float: right;
+      line-height: 35px;
+      padding: 0px 10px;
+    }
+    span{
+      color:#666;
+      font-size: 14px;
+    }
+  }
+  .left{
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 16px;
+    p{
+      span{
+
+      }
+    }
+    .icon{
+      &:before{
+        margin: 0px 8px;
+        font-size: 18px;
+      }
+    }
+  }
+  .right{
+    display: inline-block;
+    vertical-align: top;
+    div{
+      padding: 10px;
+      margin-bottom: 10px;
+      img{
+        width:17px;
+      }
+    }
+  }
+
+  .launch{
+    .status{
+      color:#0092db;
+    }
+    .icon{
+      &:before{
+        font-size: 15px;
+      }
+    }
+  }
+  .success{
+    .status{
+      color: #18b258;
+    }
+  }
+  .reject{
+    .status{
+      color: #da2d00;
+    }
+    .icon{
+      &:before{
+        font-size: 15px;
+      }
+    }
+  }
+
+
+}

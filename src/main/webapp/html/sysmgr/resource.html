@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>资源管理</title>
+    <script src="../../static/js/modular.js" data-config="../../static/js/config.js" data-main="sysmgr.resource"></script>
+    <style>
+       body>.h_container {
+            width: 100%;
+        }
+        .h_left_container{
+        	position: fixed;
+        }
+        .h_left_container .ztree{
+        	height: 500px;
+    		overflow: auto;
+        }
+        
+        .h_left_container,.content {
+            vertical-align: top;
+        }
+        
+        .content {
+            padding-left: 265px;
+        }
+        
+        .content>.h_container {
+            border-left: 1px solid #dfe3ec;
+            border-right: 1px solid #dfe3ec;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+        }
+        
+        .h_table tr:first-child {
+            border-top: 0px;
+        }
+        
+        .doctor-info-card-whiter {
+            margin: 8px;
+        }
+        
+        .pagination-container {
+            text-align: right;
+        }
+        
+        .doctors-container {
+            position: relative;
+            border-bottom: 1px solid #dfe3ec;
+        }
+        
+        .h_container {
+            position: relative;
+        }
+        
+        .table-container {
+            z-index: 10;
+            border-bottom: 1px solid #dfe3ec;
+        }
+        
+        .pageControler button {
+            border-right: 1px solid #dfe3ec;
+        }
+        
+        .add {
+            margin-left: 20px;
+            font-style: normal;
+        }
+        
+        .pageControler {
+            padding: 0px !important;
+        }
+        
+        .resourceProperty input,
+        .resourceProperty textarea {
+            width: 100% !important;
+        }
+    </style>
+
+    <style>
+        .add_content {
+            display: table;
+            width: 100%;
+            padding-top: 16px;
+            border-bottom: 1px solid #dfe3ec
+        }
+        
+        .add_content .left {
+            display: table-cell;
+            width: 50%;
+        }
+        
+        .add_content .right {
+            display: table-cell;
+            widht: 50%;
+            border-left: 1px solid #dfe3ec
+        }
+        
+        .add_content .right .pageControler {
+            padding: 0px !important;
+        }
+        
+        .add_content .right .pageControler button {
+            border-left: none;
+        }
+        
+        .left .form-group input,
+        .left .form-group select {
+            width: 251px
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="h_container_top_tools _hide">
+
+        <!--输入控件 区间日期选择控件-->
+        <div class="h_input_group">
+            <span class="word">关键字：</span>
+            <span class="input">
+        	<input placeholder="请输入关键字"/>
+        </span>
+        </div>
+
+        <button type="button" class="h_btn h_btn_blue showAddBtn">
+ 		<span class="fa fa-plus">新增</span>   
+    </button>
+
+    </div>
+
+    <div class="h_container rs_content">
+        <div class="h_left_container">
+            <!--标题 start-->
+            <div class="title">
+                <div class="h_auto_layout">
+                    <div class="wrap_content">
+                        <div class="h_input_group">
+                            <span style="padding-left: 0px">资源信息</span>
+                        </div>
+                    </div>
+                    <div class="match_parent">
+                        <div class="input-group input-group-sm search">
+                            <span class="input-group-addon fa fa-search"></span>
+                            <input type="text" class="form-control"  id="searchLeftTree" placeholder="请输入查询内容..." aria-describedby="sizing-addon3">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--标题 end-->
+            <!--内容 start-->
+            <ul class="ztree" id="tree">
+
+            </ul>
+            <!--内容 end-->
+        </div>
+        <div class="content">
+
+            <!-- 标题栏 star -->
+            <div id="info-btns" class="pageControler">
+                <button class="active"><span id="info_title"></span>资源信息</button>
+                <cite class="h_btn h_btn_blue add " id="btn-add">添加</cite>
+                <cite class="h_btn h_btn_blue edit" data-select="btn-edit" >编辑</cite>
+                <cite class="h_btn h_btn_red del" data-select="btn-del" >删除</cite>
+            </div>
+            <!-- 标题栏 end -->
+
+            <div class="h_container resourceProperty">
+                <div class="h_container row h_form" id="infoform">
+
+                    <div class="col-xs-6">
+                        <div class="form-group form-inline">
+                            <label>资源名称：</label>
+                            <input class="form-control" readonly="readonly" id="resourceName" name="resourceName">
+                            <input id="id" name="id" type="hidden">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="form-group form-inline">
+                            <label>资源类型：</label>
+                            <input name="resourceTypeName" class="form-control" readonly="readonly">
+                            <input id="resourceType" readonly="readonly" type="hidden" name="resourceType" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="form-group form-inline">
+                            <label>资源编号：</label>
+                            <input class="form-control" id="no" readonly="readonly" name="no">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="form-group form-inline">
+                            <label>资源权限：</label>
+                            <input class="form-control" id="juris_code" readonly="readonly" name="juris_code">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group form-inline">
+                            <label>资源属性：</label>
+                            <textarea id="properties" readonly="readonly" name="properties" class="form-control" rows="2" placeholder=""></textarea>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="doctors-container">
+                <!-- 标题栏 star -->
+                <div class="pageControler">
+                    <button class="active">系统管理的下级资源信息</button>
+                </div>
+                <!-- 标题栏 end -->
+            </div>
+
+            <!-- 表格 star -->
+            <div class="h_container table-container">
+                <table id="dataList" class="h_table h_table_blue">
+                    <thead>
+                        <tr class="title">
+                            <td>功能名称</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+            <!-- 表格 end -->
+
+        </div>
+    </div>
+
+
+    <!-- 弹框 -->
+    <div class="modal-wrap">
+        <!-- 中间模块区 开始-->
+        <div class="center-wrap">
+            <!-- 标准模态 开始 -->
+            <div class="modal-frame floatbox" id="datamodal"  style="width:600px">
+                <div class="left-block-blue crumb"></div>
+                <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+                <!-- 标题  开始-->
+                <div class="floatbox-header">资源信息</div>
+                <!-- 标题  结束-->
+
+                <hr class="splitline">
+
+                <!-- 主体  开始-->
+                <div class="floatbox-body">
+                    <form class="h_form" id="dataform">
+                        <div class="h_container h_form ">
+                        
+					    <div class="row">
+                            <div class="col-xs-6">
+                            	<label class="col-xs-4">资源名称：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <input name="resourceName" class="form-control" placeholder="请输入资源名称">
+                                    <input id="id" name="id" type="hidden">
+                                    <input type="hidden" name="parentNO">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                            	<label class="col-xs-4">资源类型：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <select id="resourceType" class="form-control"  name="resourceType">
+			                   			<option value=1>应用</option>
+										<option value=2>导航条</option>
+										<option value=3>菜单</option>
+										<option value=4>按钮</option>
+										<option value=5>权限资源</option>
+			                </select>
+                                </div>
+                            </div>
+						</div>
+						
+					    <div class="row">
+                            <div class="col-xs-6">
+                             	<label class="col-xs-4">资源编号：</label>
+                                <div class="form-group col-xs-8">                                   
+                                    <input id="no" name="no" class="form-control" placeholder="请输入资源编号">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                            	<label class="col-xs-4">资源权限：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <input id="juris_code" name="juris_code" class="form-control" placeholder="请输入资源权限">
+                                </div>
+                            </div>
+						</div>
+						
+					    <div class="row">
+                            <div class="col-xs-12">
+                            	<label class="col-xs-2">资源属性：</label>
+                                <div class="form-group col-xs-10">                                    
+                                    <textarea id="properties"   name="properties" class="form-control" rows="2" placeholder="请输入资源属性"></textarea>
+                                </div>
+                            </div>
+						</div>
+
+                        </div>
+                    </form>
+                </div>
+                <!-- 主体  结束-->
+
+                <hr class="splitline">
+
+                <!-- 底部条 开始 -->
+                <div class="footbar">
+                    <button id="btn-save" type="button" class="h_btn h_btn_blue h_btn h_btn_lg">保存并退出</button>
+                    <button type="button" class="h_btn h_btn h_btn_lg cancel">取消</button>
+                </div>
+                <!-- 底部条 结束 -->
+
+            </div>
+            <!-- 标准模态 开始 -->
+        </div>
+        <!-- 中间模块区 结束-->
+    </div>
+
+
+    <script id="template-tbody" type="text/x-handlebars-template" >
+        {{#each this}}
+        <tr>
+            <td>{{name}}({{no}})</td>
+            <td>
+                <button class="h_link" data-id="{{id}}" data-select="btn-edit">编辑</button>
+                <span class="vertical_line">|</span>
+                <button class="h_link" data-id="{{id}}" data-select="btn-del">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+</body>
+
+</html>

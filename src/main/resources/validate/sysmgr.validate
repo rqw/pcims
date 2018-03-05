@@ -1,0 +1,131 @@
+{
+    validates: [
+                {
+                    name : "com.ghit.ecg.sysmgr.entity.User",
+                    infos : [
+                                {
+                                    field : "userName",
+                                    type : "Required",
+                                    name : "帐号",
+                                    infos : [
+                                            {
+                                                validate : "$len(#this,1,16)",
+                                                message : "帐号长度为1-16个字符."
+                                            }
+                                    ]
+                                },
+                                {
+                                    field : "fullname",
+                                    type : "Required",
+                                    name : "姓名",
+                                    infos : [
+                                            {
+                                                validate : "$len(#this,1,15)",
+                                                message : "姓名长度为1-15字符."
+                                            }
+                                    ]
+                                },
+                                {
+                                    field : "sex",
+                                    type : "Required",
+                                    name : "性别",
+                                    infos : [
+                                            {
+                                                validate : "$in(#this,[1,2])",
+                                                message : "性别不正确，请选择男或女."
+                                            }
+                                    ]
+                                },
+                                {
+                                    field : "flag",
+                                    type : "Required",
+                                    name : "用户状态",
+                                    infos : [
+                                            {
+                                                validate : "$in(#this,[0,1])",
+                                                message : "用户状态不正确，请选择启用或不启用."
+                                            }
+                                    ]
+                                },
+                                {
+                                    field : "tel",
+                                    validate : "$len(#this,0,30)",
+                                    message : "电话号码不能超过30位."
+                                }
+                    ]
+                
+                },
+                {
+                    name : "IndexService.login.User",
+                    infos : [
+                                {
+                                    field : "userName",
+                                    validate : "$empty(#this)",
+                                    expect : true,
+                                    message : "用户名不能为空."
+                                },
+                                {
+                                    field : "password",
+                                    validate : "$empty(#this)",
+                                    expect : true,
+                                    message : "密码不能为空."
+                                }
+                    ]
+                },
+                {
+                    name : "com.ghit.ecg.sysmgr.entity.Organization",
+                    infos : [
+                                {
+                                    field : "name",
+                                    type : "Required",
+                                    name : "机构名称",
+                                    infos : [
+                                            {
+                                                validate : "$len(#this,1,100)",
+                                                message : "机构名称长度为1-100字符." 
+                                            }
+                                    ]
+                                },
+                                {
+                                    field : "pcode",
+                                    type : "Required",
+                                    name : "上级机构编码",
+                                    infos : [
+                                            {
+                                                validate : "$len(#this,1,20)",
+                                                message : "上级机构编码长度为1-20字符."
+                                            }
+                                    ]
+                                }
+                    ]
+                },
+                {
+                    name : "com.ghit.ecg.sysmgr.entity.Role",
+                    infos : [
+                                {
+                                    field : "roleName",
+                                    type : "Required",
+                                    name : "角色名称",
+                                    i118n : "validate.role.roleName.Required",
+                                    infos : [
+                                            {
+                                                validate : "$len(#this,1,15)",
+                                                i118n : "validate.role.roleName.length"
+                                            }
+                                    ]
+                                },
+                                {
+                                    field : "roleCode",
+                                    validate : "$len(#this,0,15)",
+                                    i118n : "validate.role.roleCode.length"
+                                },
+                                {
+                                    field : "description",
+                                    validate : "$len(#this,0,50)",
+                                    i118n : "validate.role.description.length"
+                                }
+                    
+                    ]
+                }
+    ]
+}

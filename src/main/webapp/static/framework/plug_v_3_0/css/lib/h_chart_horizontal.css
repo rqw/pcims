@@ -1,0 +1,38 @@
+.h_chart_horizontal {
+  display: table;
+  width: 100%;
+  background: #ebf2f8;
+  padding: 8px;
+  box-shadow: 1px 1px 10px #bbb;
+  border: 1px solid #ddd;
+}
+.h_chart_horizontal .left {
+  display: table-cell;
+  vertical-align: middle;
+  width: 130px;
+  height: 91px;
+}
+.h_chart_horizontal .left .icon {
+  width: 100%;
+  text-align: center;
+  padding: 8px 8px 4px 8px;
+  vertical-align: middle;
+}
+.h_chart_horizontal .left .icon img {
+  height: 45px;
+  display: block;
+  margin: auto;
+}
+.h_chart_horizontal .left .title {
+  font-size: 16px;
+  color: #0188cc;
+  text-align: center;
+  width: 100%;
+  margin: 0px;
+  padding: 4px 8px 8px 8px;
+  vertical-align: middle;
+}
+.h_chart_horizontal .chart {
+  height: 108px;
+  display: table-cell;
+}

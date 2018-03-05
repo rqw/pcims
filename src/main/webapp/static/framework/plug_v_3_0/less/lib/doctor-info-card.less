@@ -1,0 +1,328 @@
+@import "../../../../less/variables";
+@import "../../../../less/mixin";
+@import "../../../../less/animation";
+/*医生信息卡基本样式*/
+a{
+  text-decoration: none;
+}
+/**横向默认样式**/
+.doctor-info-card{
+  border: 1px solid @grey-light-light;
+  border-radius: 4px;
+  *{
+    transition:all 0.2s linear;
+  }
+  .header{
+      background: @grey-light-light;
+      padding: 5px 10px;
+      border-radius: 4px 4px 0px 0px;
+      .title{
+        font-size: 1.4em;
+        color:@grey-dark;
+        cursor: default;
+      }
+    }
+
+  .content{
+    padding: 10px;
+    min-height: 108px;
+    .avatar{
+      display: block;
+      float: left;
+
+      img{
+        width: 75px;
+        height:85px;
+        border-radius: 2px;
+        .alpha(0.85)
+      }
+    }
+    .info{
+      margin-left:88px;
+      dl{
+        margin-bottom: 0px;
+      }
+      dd{
+        margin-bottom: 5px;
+
+        span{
+          width: 35px;
+          display: inline-block;
+          font-size: 1.2em;
+          color: @light-grey;
+          float: left;
+          cursor: default;
+        }
+        ins{
+          font-style:normal;
+          text-decoration: none;
+          font-size: 1.2em;
+          color:@grey-dark;
+          margin-left: 40px;
+          display: block;
+          cursor: default;
+          min-height: 17px;
+          .onceLine;
+        }
+        .profile{
+          /*white-space: normal*/;
+        }
+      }
+    }
+  }
+
+  &:hover{
+    box-shadow: 0px 4px 7px #eee;
+    border: 1px solid @light-grey;
+    .header{
+      background: @grey;
+      .title{
+        color:@white
+      }
+    }
+    .content .avatar img{
+      .alpha(1);
+    }
+  }
+
+}
+/**白色卡片样式**/
+.doctor-info-card-whiter{
+  *{
+    margin: 0px;
+  }
+  width: 192px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  background: #ebf2f8;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  &.hoverScale{
+    .hoverScale(1.05,0.225s);
+  }
+  /*.durationAnim(all,0.225s,linear);
+  .hoverScale(1.05);*/
+  &:hover{
+    box-shadow: 0px 0px 10px #aaa;
+  }
+  .name{
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+    padding: 8px;
+  }
+  p{
+    margin-bottom: 8px;
+  }
+  .hospital{
+    color: #333;
+    font-size:12px;
+    span{
+      display: inline-block;
+    }
+    .hpl-name{
+      width: 109px;
+      vertical-align: bottom;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: left;
+    }
+    .hpl-area{
+      width: 60px;
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      float: right;
+
+    }
+  }
+  .sheng{
+    position: absolute;
+    left:8px;
+    top: -4px;
+    width: 25px;
+    display: block;
+  }
+  .avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10px auto;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    .durationAnim(all,0.225s,linear);
+    .hoverScale(1.25);
+    img{
+      width: 60%;
+      margin-left: 20%;
+      margin-top: 5px;
+    }
+  }
+  .remarks{
+    font-size: 12px;
+    color: #888;
+    line-height: 20px;
+    height:40px;
+    width: 100%;
+    white-space: normal;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    overflow: hidden;
+  }
+  .price{
+    color:#18b258;
+    font-size: 18px;
+    width: 70%;
+    display: inline-block;
+  }
+  .select_icon{
+    color: #d6dadf;
+    font-size: 24px;
+    width: 25%;
+    display: inline-block;
+    text-align: right;
+  }
+  &.selected{
+    background: #009fef;
+    /*border: 1px solid #009fef;*/
+    .name{
+      color: #fff;
+    }
+    .hospital{
+      color:#fff;
+    }
+    .remarks{
+      color:#ace3ff;
+    }
+    .price {
+      color: #fff;
+    }
+    .select_icon{
+      color: #fff;
+    }
+    .tools{
+      button{
+        color:#fff;
+        &:hover{
+          background: #fff;
+          color: #009fef;
+        }
+      }
+    }
+    &:hover{
+      box-shadow: 0px 0px 10px #009fef;
+    }
+  }
+
+  .tools{
+    position: absolute;
+    top: 8px;
+    right: 5px;
+
+    li{
+      text-align: right;
+      list-style: none;
+    }
+
+    button{
+      &:hover{
+        i{
+          /*display: none;*/
+        }
+        span{
+          display: inline;
+        }
+      }
+    }
+    button{
+      background:none;
+      color: #aaa;
+      font-size: 14px;
+      border-radius: 2px;
+      padding: 0px 4px;
+      margin-bottom: 2px;
+      .durationAnim(all,0.225s,linear);
+      i{
+        margin-right: 2px;
+        display: inline-block;
+        width: 15px;
+        text-align: center;
+        font-size: 15px;
+        text-shadow: 0px 0px 10px #c5ebff;
+      }
+      span{
+        display: none;
+        text-shadow: 0px 0px 10px #c5ebff;
+      }
+      &:hover{
+        background: #009fef;
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+
+/*小卡片样式*/
+.doctor-info-card-whiter-small{
+  .doctor-info-card-whiter();
+  height: 218px;
+  *{
+    font-size:12px !important;
+  }
+  width: 163px;
+  .hospital .hpl-name{
+    width: 87px;
+  }
+  .name{
+    padding: 0px;
+    height: 17px;
+  }
+  .avatar{
+    width: 60px;
+    height: 60px;
+    margin: 8px auto;
+  }
+  .remarks{
+    height: 40px;
+  }
+  .tools{
+    button{
+      font-size: 12px;
+    }
+  }
+}
+/*医生信息卡 皮肤样式*/
+
+/*医生信息卡 蓝色皮肤*/
+
+.skin-blue{
+
+  .doctor-info-card{
+
+    .header{
+      background:#97d2ed;
+      .title{
+        color: @white;
+      }
+    }
+
+    &:hover{
+      box-shadow: 0px 4px 7px #eee;
+      border-color:@blue-light !important;
+      .header{
+        background: @blue-v-2-0;
+        .title{
+          color:@white
+        }
+
+      }
+    }
+  }
+}

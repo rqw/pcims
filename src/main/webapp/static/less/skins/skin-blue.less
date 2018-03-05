@@ -1,0 +1,203 @@
+@import "../variables.less";
+@import "../mixin.less";
+
+@skin-blue-body-grey:#d7dbe0;
+@skin-blue-secondary-right-border-grey:#bdc3c7;
+
+
+
+
+@topbar-background:#0088cc;
+@topbar-logopath:'';
+@topbar-title-Color:'#fff';
+
+@leftbar-backgrkound:'#0088cc';
+
+
+@main-menu-background-color:'';
+@main-menu-icon-color:'';
+@main-menu-word-color:'';
+
+@main-menu-background-hover-color:'';
+@main-menu-icon-hover-color:'';
+@main-menu-word-hover-color:'';
+
+@main-menu-background-selected-color:'';
+@main-menu-icon-selected-color:'';
+@main-menu-word-selected-color:'';
+
+
+
+.skin-blue{
+  background: @skin-blue-body-grey;
+  /*top条皮肤*/
+  .topbar{
+    background: @topbar-background;
+    box-shadow: 0px 0px 10px @grey;
+    .split{
+      span{
+        background: @blue-deep;
+        border-right-color: @blue-light !important;
+      }
+
+    }
+    .title{
+      color: @white;
+      text-shadow: 0px 1px 6px @grey;
+    }
+  }
+  /*main-sidebar 展开皮肤*/
+  .main-sidebar{
+    background: @blue;
+    box-shadow: 0px -4px 18px @grey;
+    /*一级目录皮肤*/
+    .one-level{
+      & >li >a{
+        .menu(@blue,@white,@white,@white);
+      }
+    }
+    /*二级目录皮肤*/
+    .two-level{
+      background: none;
+      & >li{
+        &:last-child{
+          margin-bottom: 0px;
+        }
+        & >a{
+          .menu(none,@white,@white,@white);
+        }
+        &:hover{
+          &>a{
+            .menu(fadeout(@blue-shallow,50%),@white,@white,@white);
+          }
+        }
+        .active{
+            .menu(@blue-shallow,@blue-black-shallow,@blue-black,@blue-black);
+            box-shadow: 1px 1px 5px @grey-light inset;
+        }
+
+      }
+    }
+
+    /* main-sidebar 收起皮肤 */
+    &.collapse{
+      /*一级目录收起皮肤*/
+      .one-level{
+        >li{
+          border-bottom-color: @blue-deep !important;
+        }
+      }
+      /*二级目录收起皮肤*/
+    .two-level{
+      background: @blue-deep;
+      >li{
+        >a{
+          background: none;
+        }
+      }
+      >li .active{
+        background: @blue-shallow !important;
+      }
+      >li:hover{
+        background: fadeout(@blue-shallow,50%);
+        .active{
+          .left-icon{
+            color:  @blue-black-shallow;
+          }
+        }
+      }
+    }
+
+    }
+
+  }
+  /* secondary-sidebar 皮肤 */
+  .secondary-sidebar{
+    background: @blue-shallow;
+    border-color:@skin-blue-secondary-right-border-grey !important;
+    /*三级目录展开皮肤*/
+    .three-level {
+      & > li {
+        & > a {
+          .menu(@white, @blue-black-shallow, @blue-black, @blue-black);
+        }
+        &:hover {
+          & > a {
+            .menu(@white, @blue-black-shallow, @blue-black, @blue-black);
+          }
+        }
+      }
+    }
+    /*四级目录展开皮肤*/
+    .four-level{
+      & >li{
+        & >a{
+          .menu(none,@blue-black-shallow,@blue-black,@blue-black);
+        }
+        &:hover{
+          &>a{
+            .menu(fadeout(@blue-deep,50%),@white,@white,@white);
+          }
+        }
+        .active{
+            .menu(@blue,@white,@white,@white);
+        }
+
+      }
+    }
+
+    /* secondary-sidebar 收起皮肤 */
+    &.collapse{
+      /*三级目录收起皮肤*/
+      .three-level{
+        >li:hover{
+          >a {
+            background: @blue;
+            .menu(@blue,@white,@white,@white);
+          }
+        }
+
+        .four-level{
+          background: @blue;
+          padding: 4px 0px;
+          & >li >a{
+            .menu(@blue,@white,@white,@white);
+          }
+        }
+
+      }
+      /*四级目录收起皮肤*/
+      .four-level{
+        background: @blue;
+        >li >a:hover,>li a.active{
+          .menu(@white,@blue-deep,@blue-deep,@blue-deep);
+        }
+      }
+    }
+    /*secondary toggle按钮 皮肤*/
+    .secondary-sidebar-toggle{
+      .toggle-btn{
+        background: @skin-blue-secondary-right-border-grey;
+        span{
+          color:@blue;
+        }
+      }
+      .toggle-btn:hover{
+        background: @blue;
+        span{
+          color:@white;
+        }
+      }
+
+    }
+
+  }
+
+  .bottom-bar{
+    background: @blue;
+    .info{
+      color: @blue-shallow;
+    }
+  }
+}
+

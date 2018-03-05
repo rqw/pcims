@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ghit</groupId>
+		<artifactId>ghit-basic-pom</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>pcims</artifactId>
+	<packaging>war</packaging>
+	<name>pcims</name>
+	<properties>
+		<ghit.version>2.1.5-SNAPSHOT</ghit.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.ghit</groupId>
+			<artifactId>ghit-basic-sysmgr</artifactId>
+			<version>${ghit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ghit</groupId>
+			<artifactId>ghit-basic-statistics</artifactId>
+			<version>${ghit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ghit</groupId>
+			<artifactId>ghit-basic-websocket</artifactId>
+			<version>${ghit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ghit</groupId>
+			<artifactId>ghit-basic-websocket</artifactId>
+			<version>${ghit.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.44</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+		</plugins>
+		<finalName>pcims</finalName>
+		<defaultGoal>compile</defaultGoal>
+	</build>
+</project>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>系统配置信息管理</title>
+    <script src="../../static/js/modular.js" data-config="../../static/js/config.js" data-main="sysmgr.configuration"></script>
+
+</head>
+
+<body>
+    <div class="h_container_top_tools">
+
+        <!--输入控件 区间日期选择控件-->
+        <div class="h_input_group">
+            <span class="word">关键字：</span>
+            <span class="input">
+        	<input id="searchtext" placeholder="请输入查询条件"/>
+        </span>
+        </div>
+        <button class="h_btn h_btn_green" id="btn-search">
+		<span class="fa fa-search">查询</span>
+	</button>
+
+        <button type="button" class="h_btn h_btn_blue" data-select="btn-add">
+ 		<span class="fa fa-plus">新增</span>   
+    </button>
+        <button type="button" class="h_btn h_btn_red" data-select="btn-del" data-check>
+ 		<span class="fa fa-trash-o">删除</span>   
+    </button>
+
+
+
+    </div>
+
+    <div class="htableView">
+        <!-- 表格 -->
+        <table id="dataList" class="h_table h_table_blue">
+        <col width="54px"/>
+        <col width="10%"/>
+        <col width="18%"/>
+        <col />
+        <col width="10%"/>
+        <col width="10%"/>
+        <col width="7%"/>
+        <col width="150px"/>        
+            <thead>
+                <tr class="title" style="border-top:none ">
+                    <td>
+                        <button class="square-btn-all" type="button" title="全选/全不选">
+						<i class="fa fa-square-o" aria-hidden="true"></i>
+					</button>
+                    </td>
+                    <td>配置分组</td>
+                    <td>配置项名称</td>
+                    <td>配置项值</td>
+                    <td>机构标识</td>
+                    <td>回调接口</td>
+                    <td>状态</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!--底部导航-->
+        <div id="pageContainer">
+
+        </div>
+
+    </div>
+
+    <!-- 弹框 -->
+    <div class="modal-wrap">
+        <!-- 中间模块区 开始-->
+        <div class="center-wrap">
+            <!-- 标准模态 开始 -->
+            <div class="modal-frame floatbox" id="datamodal" target-draggable="false" style="width:352px">
+                <div class="left-block-blue crumb"></div>
+                <button class="close"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+                <!-- 标题  开始-->
+                <div class="floatbox-header">系统配置信息</div>
+                <!-- 标题  结束-->
+
+                <hr class="splitline">
+
+                <!-- 主体  开始-->
+                <div class="floatbox-body">
+                    <form class="h_form" id="dataform">
+                        <div class="h_container row">
+
+                            <div class="col-xs-12 ">
+                            	<label class="col-xs-4" for="configurationGroup">配置分组：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <input id="configurationGroup" name="configurationGroup" class="form-control" placeholder="请输入配置分组">
+                                    <input type="hidden" id="id" name="id" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 ">
+                            	<label class="col-xs-4" for="configurationName">配置名称：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <input id="configurationName" autocomplete="off" name="configurationName" class="form-control" placeholder="请输入配置名称">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 ">
+                            	<label class="col-xs-4" for="configurationValue">配置项值：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <input id="configurationValue" autocomplete="off" name="configurationValue" class="form-control" placeholder="请输入配置项值">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 ">
+                            	<label class="col-xs-4" for="organizationId">机构标识：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <input id="organizationId" autocomplete="off" name="organizationId" class="form-control" placeholder="请输入机构标识">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 ">
+                            	<label class="col-xs-4" for="callback">回调接口：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <input id="callback" autocomplete="off" name="callback" class="form-control" placeholder="请输入回调接口">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 ">
+                            	<label class="col-xs-4" for="flag">状态：</label>
+                                <div class="form-group col-xs-8">                                    
+                                    <label class="radio-inline"><input type="radio"  name="flag" value="1">启用</label>
+                                    <label class="radio-inline"><input type="radio"  name="flag" value="0">未启用</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- 主体  结束-->
+
+                <hr class="splitline">
+
+                <!-- 底部条 开始 -->
+                <div class="footbar">
+                    <button data-select="btn-save" type="button" class="h_btn h_btn_blue h_btn h_btn_lg">保存并退出</button>
+                    <button type="button" class="h_btn h_btn h_btn_lg cancel">取消</button>
+                </div>
+                <!-- 底部条 结束 -->
+
+            </div>
+            <!-- 标准模态 开始 -->
+        </div>
+        <!-- 中间模块区 结束-->
+    </div>
+    <script id="template-tbody" type="text/x-handlebars-template" des="权限信息列表行模版">
+        {{#each this}}
+        <tr class="case-checkbox" data-id="{{id}}">
+            <td><label class="square-btn" title="选择"><i class="fa fa-square-o" aria-hidden="true" data-id="{{id}}" data-name="{{name}}"></i></label></td>
+            <td>{{configurationGroup}}</td>
+            <td>{{configurationName}}</td>
+            <td>{{configurationValue}}</td>
+            <td>{{organizationId}}</td>
+            <td>{{callback}}</td>
+            <td>{{_dataVal '状态' flag}}</td>
+            <td class="btn-ctrl-group">
+                <button class="h_link" data-select="btn-edit" data-id="{{id}}">编辑</button>|
+                <button class="h_link" data-select="btn-del" data-id="{{id}}" data-name="{{name}}">删除</button> &nbsp;
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+.hjk_table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.hjk_table * {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+.hjk_table tr {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+.hjk_table tr td:first-child {
+  padding-left: 30px;
+}
+.hjk_table tr td:last-child {
+  padding-right: 30px;
+}
+.hjk_table tr td {
+  font-size: 14px;
+  height: 33px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/**
+* 蓝色皮肤
+**/
+.hjk_table_blue {
+  background: #fff;
+}
+.hjk_table_blue tr {
+  border-color: #dfe3eb;
+}
+.hjk_table_blue tr:hover {
+  background: #f2f7f7;
+}
+.hjk_table_blue tr:hover td {
+  color: #0081c2 !important;
+  cursor: pointer;
+}
+.hjk_table_blue tr.title {
+  background: #e6f0f0;
+}
+.hjk_table_blue tr.title td {
+  color: #666666;
+}
+.hjk_table_blue tr.gray td {
+  color: #808080;
+}
+.hjk_table_blue tr td {
+  color: #333333;
+}
+.skin-blue {
+  background: #fff;
+}
+.skin-blue tr {
+  border-color: #dfe3eb;
+}
+.skin-blue tr:hover {
+  background: #f2f7f7;
+}
+.skin-blue tr:hover td {
+  color: #0081c2 !important;
+  cursor: pointer;
+}
+.skin-blue tr.title {
+  background: #e6f0f0;
+}
+.skin-blue tr.title td {
+  color: #666666;
+}
+.skin-blue tr.gray td {
+  color: #808080;
+}
+.skin-blue tr td {
+  color: #333333;
+}

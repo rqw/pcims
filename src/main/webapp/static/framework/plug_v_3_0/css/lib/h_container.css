@@ -1,0 +1,13 @@
+.h_container {
+  padding: 10px 20px;
+}
+.h_container_top_tools {
+  padding: 10px 20px;
+  border: 1px solid;
+  background: #f7fafa;
+  border-color: #dfe3eb ;
+}
+.skin-blue .h_container_top_tools {
+  background: #f7fafa;
+  border-color: #dfe3eb;
+}

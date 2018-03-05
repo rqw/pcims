@@ -1,0 +1,349 @@
+@import "../variables";
+@import "../mixin";
+body{
+  background-image:url('../../images/newFeixi/bg.jpg');
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 1200px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top:0px;
+  overflow: hidden;
+    }
+.body_bg{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top:0px;
+  max-width: 100%;
+}
+.computer-panel{
+  width:750px;
+  height: 539px;
+  position: relative;
+  top: 100px;
+  padding-top:112px;
+  padding-left:58px;
+  margin: auto;
+  font-size: 10px;/*为兼容bootstrap 重置内部初始文字大小*/
+  .green{
+    background: #2bd583;
+    &:hover{
+      background: #28c97c;
+    }
+  }
+  .red{
+    background: #e2634a;
+    &:hover{
+      background: #d65f47;
+    }
+  }
+  .purple-blue{
+    background: #71a1f0;
+    &:hover{
+      background: #6b99e3;
+    }
+  }
+  .grass-green{
+    background: #91b64c;
+    &:hover{
+      background: #86a847;
+    }
+  }
+  .yellow{
+    background:#e1bb4c;
+    &:hover{
+      background: #d4b148;
+    }
+  }
+  .blue{
+    background: #4caee1;
+    &:hover{
+      background: #48a3d4;
+    }
+  }
+
+  .bg{
+    width: 100%;
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+  }
+  .system_title{
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 3.1em;
+    color: #fff;
+    z-index: 10;
+    text-shadow: 2px 2px 1px #6491b2;
+  }
+  .xiaohuahua{
+    width: 1000px;
+    position: absolute;
+    top: 0px;
+    left: -125px;
+    .alpha(0.5)
+  }
+  .card{
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    padding: 33px 0px;
+    float: left;
+    margin-top: 14px;
+    z-index: 10;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+   /* &:nth-child(3n-1){
+      margin-left: 14px;
+      margin-right: 14px;
+    }*/
+    &.lg{
+      width: 300px;
+      padding:50px 0px;
+      img{
+        vertical-align: middle;
+      }
+      .title{
+        vertical-align: middle;
+        margin-left: 15px;
+      }
+    }
+    img{
+      width: 50px;
+      height:50px;
+      display: inline-block;
+    }
+    .title{
+      font-size: 2.5em;
+      color:#fff;
+      display: inline-block;
+      letter-spacing: 3px;
+
+    }
+  }
+
+}
+/*
+@media screen and (min-width: 1366px) {
+  .computer-panel{
+    width:960px;
+    height:690px;
+    top: 150px;
+    padding-top:132px;
+    padding-left:42px;
+    margin: auto;
+    .system_title{
+      top: 55px;
+      font-size: 3.8em;
+    }
+    .card{
+      width: 215px;
+      height: 215px;
+      text-align: center;
+      padding: 27.5px 0px;
+      float: left;
+      margin-top: 14px;
+      z-index: 10;
+      position: relative;
+      &.lg{
+        width: 420px;
+        padding:50px 0px;
+        img{
+          vertical-align: middle;
+        }
+        .title{
+          vertical-align: middle;
+          margin-left: 17px;
+        }
+      }
+      img{
+        width: 100px;
+        height:100px;
+        display: inline-block;
+      }
+      .title{
+        font-size: 3.2em;
+        color:#fff;
+        display: inline-block;
+
+      }
+    }
+
+    .xiaohuahua{
+      width: 1300px;
+      left: -170px;
+    }
+
+
+  }
+}
+
+
+
+
+*/
+
+/**选择面板缩放mixin**/
+.scaleComputer(@x){
+  .computer-panel{
+    width:960px*@x;
+    height:690px*@x;
+    top: 150px*abs(1-@x);
+    padding-top:132px*@x;
+    padding-left:42px*@x;
+    margin: auto;
+
+
+    .system_title{
+      top: 55px*@x;
+      font-size: 3.8em*@x;
+    }
+    .card{
+      width: 215px*@x;
+      height: 215px*@x;
+      text-align: center;
+      padding: 27.5px*@x 0px;
+      float: left;
+      margin-top: 14px*@x;
+      z-index: 10;
+      position: relative;
+      &.marginLR{
+        margin-left: 14px*@x;
+        margin-right: 14px*@x;
+      }
+      &.lg{
+        width: 420px*@x;
+        padding:50px*@x 0px;
+        img{
+          vertical-align: middle;
+        }
+        .title{
+          vertical-align: middle;
+          margin-left: 17px*@x;
+        }
+      }
+      img{
+        width: 100px*@x;
+        height:100px*@x;
+        display: inline-block;
+      }
+      .title{
+        font-size: 3.2em*@x;
+        color:#fff;
+        display: inline-block;
+
+      }
+    }
+
+    .xiaohuahua{
+      width: 1300px;
+      left: -170px;
+    }
+
+
+  }
+}
+
+.screen_800{
+  .scaleComputer(0.6)
+}
+.screen_1024{
+  .scaleComputer(1.0)
+}
+.screen_1152{
+  .scaleComputer(1.1)
+}
+.screen_1280 {
+  .scaleComputer(1.3);
+}
+.screen_1440{
+  .scaleComputer(1.2)
+}
+.screen_1600{
+  .scaleComputer(1.2)
+}
+.screen_1680{
+  .scaleComputer(1.32)
+}
+.screen_1920{
+  .scaleComputer(1.4)
+}
+
+.infobar{
+  position: absolute;
+  top: 50px;
+  right: 47px;
+  z-index: 100;
+  display: table;
+  >div{
+    display: table-cell;
+    padding: 0px 10px;
+  }
+  .user-info{
+    .name{
+     margin-left: 5px;
+    font-size: 18px;
+    }
+  }
+  .switch{
+    vertical-align: top;
+    button{
+      background: none;
+      outline: none;
+      span{
+        padding-top: 1px;
+        text-shadow: 1px 1px 10px #fff;
+      }
+      &:hover{
+        span{
+          color:#ff2a00
+        }
+      }
+    }
+
+  }
+
+  span{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 21px;
+    color: #fff;
+  }
+}
+
+.screen_800 .infobar{
+  top: 27px;
+  right: 18px;
+  > div {
+    padding: 0px 7px;
+  }
+  .user-info {
+    .name {
+      margin-left: 3px;
+      font-size: 12px !important;
+    }
+  }
+  .switch {
+
+    button {
+      span {
+        padding-top: 1px;
+        text-shadow: 1px 1px 10px #fff;
+      }
+    }
+
+  }
+  span{
+    font-size: 12px;
+  }
+}
+

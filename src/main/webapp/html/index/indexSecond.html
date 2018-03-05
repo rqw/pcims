@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../static/js/modular.js" data-config="../../static/js/config.js" data-main="index.indexSecond"></script>
+
+</head>
+<body class="skin-blue">
+<!--content start-->
+<div class="content" style="top: 0px">
+    <!--left secondary menum sidebar start-->
+    <div class="secondary-sidebar">
+        <div class="secondary-sidebar-toggle">
+            <button class="toggle-btn">
+                <span class="fa fa-caret-right"></span>
+            </button>
+        </div>
+        <ul data-name="listMenu" class="three-level listMenu" id="leftTreeContainer">
+            
+           
+            
+
+        </ul>
+    </div>
+    <!--left secondary menum sidebar end-->
+    <!--toggle btn -->
+    <!--div class="secondary-sidebar-toggle">
+        <button class="toggle-btn">
+            <span class="fa fa-caret-right"></span>
+        </button>
+    </div-->
+
+    <!--iframe block start-->
+    <div class="main-content">
+        <div class="tabsbar" style="height:45px">
+            <div class="tbs_horizontal" id="horizontal-tabs-container">
+                <div class="shadow"></div>
+            </div>
+        </div>
+        <div class="main-iframe" id="main-iframe">
+
+        </div>
+    </div>
+    <!--iframe block end-->
+
+
+
+</div>
+
+<!--悬浮url选择器-->
+<script id="leftTree" type="text/x-handlebars-template">
+              {{#each this}}
+			 <li>
+                <a  class="node">
+                    <span class="left-icon fa {{icon}}"></span>
+                    <span class="title">{{name}}</span>
+                    <span class="right-icon "></span>
+                </a>
+
+                <ul class="four-level ">
+				{{#each sons}}
+                    <li>
+                        <a data-options="{{json}}" data-id="i">
+                            <span class="left-icon fa {{icon}}"></span>
+                            <span class="title">{{name}}</span>
+                        </a>
+                    </li>
+				{{/each}}
+                </ul>
+
+            </li>
+              {{/each}}
+		
+
+
+          </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+.h_pagination span,
+.h_pagination button {
+  padding: 4px 8px;
+  background: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: #dedcdd;
+  color: #333333;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+}
+.h_pagination span input,
+.h_pagination button input {
+  outline: none;
+  width: 30px;
+  text-align: center;
+}
+.h_pagination span:hover {
+  background: #65c5f5 ;
+  color: #fff;
+}
+.h_pagination span.active {
+  background: #0092db;
+  color: #fff;
+}
+.h_pagination .word {
+  background: none !important;
+  color: #333333 !important;
+  cursor: default  !important;
+  border: none !important;
+}
+.h_pagination .pagination {
+  background: none;
+  color: #333333;
+  cursor: default;
+  border: none;
+  display: inline-block;
+  margin: 0px;
+}
+.h_pagination .input {
+  background: #fff !important;
+  color: #333333 !important;
+  cursor: default  !important;
+}
+.h_pagination button {
+  color: #006ea5;
+}

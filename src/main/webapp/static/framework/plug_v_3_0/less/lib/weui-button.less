@@ -1,0 +1,56 @@
+@import "weui-border";
+.weui-btn(@color){
+  background: @color;
+  font-size: 13px;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius:2px;
+  height: 30px;
+  outline: none;
+}
+.weui-btn-default{
+  .weui-btn(#fff);
+  .border(#eee);
+  color: #666;
+  &:hover{
+    background: #eee;
+  }
+}
+.weui-btn-blue{
+  .weui-btn(#0089cc);
+  color:#fff;
+  height: 30px;
+  &:hover{
+    background: #20a3e4;
+  }
+}
+
+.weui-btn-blue-lg{
+  .weui-btn-blue();
+  height: 40px;
+  font-size: 16px;
+}
+
+
+
+.disabled{
+  background: #889ca6 !important;
+  color: #eee !important;
+}
+
+button span{
+  vertical-align:middle;
+  display: inline-block;
+}
+
+.smallLoaddingIcon{
+  width:30px;
+  text-align:left;
+  height: 14px;
+  position: relative;
+
+}
+.smallLoaddingIcon .spinner{
+  left: 50% !important;
+  top: 50% !important;
+}

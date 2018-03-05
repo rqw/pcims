@@ -1,0 +1,57 @@
+@time:0.225s;
+@_deg:-5deg;
+@deg:5deg;
+/**动画关键帧**/
+@keyframes fadeOut {
+  from{
+    -moz-transform:scaleX(1) rotate(0deg);
+    -webkit-transform:scaleX(1) rotate(0deg);
+    -o-transform:scaleX(1) rotate(0deg);
+    transform:scaleX(1) rotate(0deg)
+  }
+  to{
+    transition: all 0s linear;
+    -moz-transform:scaleX(0) rotate(@deg);
+    -webkit-transform:scaleX(0) rotate(@deg);
+    -o-transform:scaleX(0) rotate(@deg);
+    transform:scaleX(0) rotate(@deg)
+  }
+}
+/**动画关键帧**/
+@keyframes fadeIn {
+  from{
+    -moz-transform:scaleX(0) rotate(@_deg);
+    -webkit-transform:scaleX(0) rotate(@_deg);
+    -o-transform:scaleX(0) rotate(@_deg);
+    transform:scaleX(0) rotate(@_deg)
+  }
+  to{
+    -moz-transform:scaleX(1) rotate(0deg);
+    -webkit-transform:scaleX(1) rotate(0deg);
+    -o-transform:scaleX(1) rotate(0deg);
+    transform:scaleX(1) rotate(0deg)
+  }
+}
+.rotateX3D{
+
+  &.fadeOut{
+    animation: fadeOut @time linear 0s 1 forwards;
+    /* Firefox: */
+    -moz-animation: fadeOut @time linear 0s 1 forwards;
+    /* Safari 和 Chrome: */
+    -webkit-animation: fadeOut @time linear 0s 1 forwards;
+    /* Opera: */
+    -o-animation: fadeOut @time linear 0s 1 forwards;
+  }
+
+  &.fadeIn{
+    animation: fadeIn @time linear 0s 1 alternate;
+    /* Firefox: */
+    -moz-animation: fadeIn @time linear 0s 1 alternate;
+    /* Safari 和 Chrome: */
+    -webkit-animation: fadeIn @time linear 0s 1 alternate;
+    /* Opera: */
+    -o-animation: fadeIn @time linear 0s 1 alternate;
+  }
+
+}

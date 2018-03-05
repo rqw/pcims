@@ -1,0 +1,306 @@
+
+@import "variables.less";
+
+.alpha(@alpha){
+  filter:alpha(Opacity=@alpha);
+  -moz-opacity:@alpha;
+  opacity: @alpha;
+}
+
+body{
+  font-size:62.5%;
+}
+button{
+  cursor: pointer;
+}
+.banner{
+  background-image: url("../images/login_banner_bg_xd.jpg");
+  background-position: center;
+  background-size: auto 100%;
+  width: 100%;
+  height:334px;
+  overflow: hidden;
+  display: block;
+  position: relative;
+
+  .logo{
+    width: 148px;
+    height:53px;
+    position: absolute;
+    left:18px;
+    top:13px;
+  }
+
+  .content{
+    width: 1000px;
+    margin: auto;
+
+    .page{
+      position: relative;
+      .word{
+        position: relative;
+        top: 100px;
+      }
+      .title{
+        font-size: 3.8em;
+        color:#fff;
+        text-align: center;
+        letter-spacing: 5px;
+        position: relative;
+      }
+      .describe{
+        font-size: 2em;
+        color:#fff;
+        text-align: center;
+        letter-spacing: 3px;
+        position: relative;
+        top: 35px;
+      }
+      .word{
+        float: left;
+        vertical-align: middle;
+        margin-left: 25px;
+      }
+    }
+
+    .page1{
+      .banner_1_images{
+        float: left;
+        height:334px;
+        left:20px;
+        position: relative;
+      }
+    }
+
+    .page2{
+      .banner_2_images{
+        float: left;
+        height:243px;
+        left:20px;
+        top: 45px;
+        position: relative;
+      }
+
+    }
+
+  }
+
+  .indicator{
+    position: absolute;
+    text-align: center;
+    bottom: 10px;
+    width: 100%;
+    z-index: 30;
+    i{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d3e7f4;
+      display: inline-block;
+      margin: auto;
+      cursor: pointer;
+      &.active{
+        background: #26c267;
+      }
+    }
+    i+i{
+      margin-left: 10px;
+    }
+  }
+
+}
+
+
+.banner_2_images{
+  display: block;
+  width: 518px;
+  height:242px;
+  position: relative;
+  top:46px;
+  float: left;
+
+  & img{
+    position: absolute;
+  }
+  .wenzi{
+    left:0px;
+    top:30px;
+    width: 517px;
+    .alpha(0.7)
+  }
+  .xindian{
+    left:226px;
+    top:0px;
+    width: 98px;
+  }
+  .r_3{
+    left:140px;
+    top:40px;
+    width: 289px;
+  }
+  .r_2{
+    left:72px;
+    top:40px;
+    width: 450px;
+  }
+  .r_1{
+    left:73px;
+    top:30px;
+    width: 419px;
+  }
+}
+
+.banner_1_images{
+  display: block;
+  width: 518px;
+  height:343px;
+  position: relative;
+
+  & img{
+    position: absolute;
+  }
+  .wenzi{
+    left:0px;
+    top:45px;
+    width: 518px;
+    .alpha(0.7)
+  }
+  .yun{
+    left:192px;
+    top:118px;
+    width: 115px;
+  }
+  .r_2{
+    left:80px;
+    top:0px;
+    width: 351px;
+  }
+  .r_1{
+    left:128px;
+    top:45px;
+    width: 243px;
+  }
+
+}
+
+
+.form{
+  width: 490px;
+  margin: auto;
+  .title{
+    font-size:20px;
+    color:@blue;
+    text-align: center;
+    margin: 35px;
+    letter-spacing:3px;
+  }
+  .user,.pass{
+    width: 100%;
+    border: 1px #cfd7dd solid;
+    border-radius: 2px;
+    padding: 0px 15px;
+    .input-icon{
+      font-size: 1.8em;
+      color: @green;
+    }
+    .user *,.pass *{
+      font-size: 0px;
+    }
+    input{
+      font-size: 1.4em;
+      outline: none;
+      height:35px;
+      line-height: 35px;
+      width: 440px;
+      padding: 0px 7px;
+      color: @grey;
+    }
+  }
+  .pass{
+    input{
+      width: 407px;
+    }
+    .keyboard-btn{
+      background: none;
+      outline: none;
+      vertical-align: middle;
+      float: right;
+      margin-top: 7.5px;
+      i{
+        font-size: 1.45em;
+        color: #c3c3c3;
+      }
+      &:hover i{
+        color: @green;
+      }
+    }
+  }
+  .prompt{
+    font-size:1.4em;
+    color: #666;
+    height: 50px;
+    line-height:50px;
+  }
+  .optional{
+    width: 100%;
+    height:30px;
+    margin: 15px 0px;
+    line-height: 30px;
+
+    label{
+      float: left;
+      color: @grey;
+      font-size: 1.4em;
+    }
+    input{
+      vertical-align: middle;
+      margin-right: 10px;
+      width: 15px;
+      height: 16px;
+
+    }
+    .forgettenPass-a{
+      float: right;
+      color: @grey;
+      font-size: 1.4em;
+    }
+  }
+  .forgettenPass-a{
+
+  }
+  .submit-btn{
+    background: @green;
+    color:@white ;
+    border-radius: 2px;
+    height: 35px;
+    width: 100%;
+  }
+
+}
+
+.error-prompt{
+  font-size: 1.4em;
+  color:@light-grey;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.info{
+  text-align: center;
+  font-size: 1.5em;
+  color: #666666;
+  margin: 50px 0px;
+
+  @media all and (min-width: 1440px)
+  {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
+
+}
+
+
+
+
+

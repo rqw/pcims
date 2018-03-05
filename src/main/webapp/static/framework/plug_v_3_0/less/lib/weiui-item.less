@@ -1,0 +1,72 @@
+@import "weui-border";
+.weui-cell{
+  width: 100%;
+  display: table;
+  height: 45px;
+  position: relative;
+//  border-top: 1px solid #e5e5e5;
+//  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+  &:before,&:after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    color: #e5e5e5;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    z-index: 2;
+  }
+  .border-top(#e5e5e5);
+  .border-bottom(#e5e5e5);
+
+  .weui-hd,.weui-bd,.weui-ft{
+    vertical-align: middle;
+    padding: 5px;
+    &.center{
+      text-align: center;
+    }
+    &.left{
+      text-align: left;
+    }
+    &.right{
+      text-align: right;
+    }
+  }
+  .weui-hd{
+    display: table-cell;
+    width: 50px;
+
+    img.icon{
+      display: block;
+      width: 12px;
+      margin: auto;
+    }
+  }
+  .weui-bd{
+    display: table-cell;
+    input{
+      height: 35px;
+      width: 100%;
+      outline: none;
+      color: #333;
+      font-size: 14px;
+      &::-webkit-input-placeholder{
+        color:#666;
+      }
+      &::-moz-placeholder{
+        color:#666;
+      }
+      &:-ms-input-placeholder{
+        color:#666;
+      }
+    }
+  }
+  .weui-ft{
+    display: table-cell;
+    width: 90px;
+  }
+}

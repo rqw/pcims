@@ -1,0 +1,122 @@
+* {
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+  font-family: 'Microsoft YaHei', Arial, 'Courier New', Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+body {
+  font-size: 62.5%;
+}
+a {
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+/*医生信息卡基本样式*/
+a {
+  text-decoration: none;
+}
+.doctor-info-card {
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+.doctor-info-card * {
+  transition: all 0.2s linear;
+}
+.doctor-info-card .header {
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 4px 4px 0px 0px;
+}
+.doctor-info-card .header .title {
+  font-size: 1.4em;
+  color: #333;
+  cursor: default;
+}
+.doctor-info-card .content {
+  padding: 10px;
+  min-height: 108px;
+}
+.doctor-info-card .content .avatar {
+  display: block;
+  float: left;
+}
+.doctor-info-card .content .avatar img {
+  width: 75px;
+  height: 85px;
+  border-radius: 2px;
+  filter: alpha(opacity=0.85);
+  -moz-opacity: 0.85;
+  opacity: 0.85;
+}
+.doctor-info-card .content .info {
+  margin-left: 88px;
+}
+.doctor-info-card .content .info dl {
+  margin-bottom: 0px;
+}
+.doctor-info-card .content .info dd {
+  margin-bottom: 5px;
+}
+.doctor-info-card .content .info dd span {
+  width: 35px;
+  display: inline-block;
+  font-size: 1.2em;
+  color: #9a9a9a;
+  float: left;
+  cursor: default;
+}
+.doctor-info-card .content .info dd ins {
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #333;
+  margin-left: 40px;
+  display: block;
+  cursor: default;
+  min-height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.doctor-info-card .content .info dd .profile {
+  /*white-space: normal*/
+}
+.doctor-info-card:hover {
+  box-shadow: 0px 4px 7px #eee;
+  border: 1px solid #9a9a9a;
+}
+.doctor-info-card:hover .header {
+  background: #666;
+}
+.doctor-info-card:hover .header .title {
+  color: #fff;
+}
+.doctor-info-card:hover .content .avatar img {
+  filter: alpha(opacity=1);
+  -moz-opacity: 1;
+  opacity: 1;
+}
+/*医生信息卡 皮肤样式*/
+/*医生信息卡 蓝色皮肤*/
+.skin-blue .doctor-info-card .header {
+  background: #97d2ed;
+}
+.skin-blue .doctor-info-card .header .title {
+  color: #fff;
+}
+.skin-blue .doctor-info-card:hover {
+  box-shadow: 0px 4px 7px #eee;
+  border-color: #00a8fc !important;
+}
+.skin-blue .doctor-info-card:hover .header {
+  background: #2fa4da;
+}
+.skin-blue .doctor-info-card:hover .header .title {
+  color: #fff;
+}

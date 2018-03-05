@@ -1,0 +1,59 @@
+.h_float_tabs_cntr{
+  width: 150px;
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  padding: 5px 5px !important;
+  display: none;
+  z-index:9999;
+  border: 1px solid #eee;
+  a{
+    border-bottom: 1px #eee solid;
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px #eee solid !important;
+    border-radius: 4px;
+    &:hover{
+      -moz-transform:scale(1.05);
+      -webkit-transform:scale(1.05);
+      -o-transform:scale(1.05);
+      transform:scale(1.05);
+    }
+    .icon {
+      color: #333;
+      font-size: 14px;
+      margin: 0px 8px;
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      vertical-align: top;
+    }
+    .title{
+      color: #333;
+      font-size:14px;
+      display: inline-block;
+      line-height: 30px;
+      height: 30px;
+      width: 92px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &:last-child{
+      border: none;
+    }
+    &:hover{
+      background: #eee;
+    }
+  }
+
+  .remove span{
+    line-height: 30px;
+    height: 30px;
+    display: inline-block;
+    padding: 0px 5px;
+    font-size: 16px;
+  }
+}

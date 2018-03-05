@@ -1,0 +1,91 @@
+/**
+使用方式 在blue-skin 皮肤下 h_table 呈现 蓝色皮肤，skin-blue皮肤环境下 使用 h_table_blue呈现蓝色皮肤，如需要扩展皮肤在文件底部扩展
+**/
+.h_table{
+  *{padding:0px;margin: 0px;border:0px}
+  width: 100%;
+  border-collapse:collapse;
+  border-spacing:0;
+  tr{
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+
+    & td:first-child{
+      padding-left:30px;
+    }
+    & td:last-child{
+      padding-right:30px;
+    }
+    td{
+      font-size:14px;
+      height: 40px;
+      padding:10px 5px;
+    }
+  }
+  &.childTable{
+    margin: 5px;
+  }
+  thead{
+    td{
+      word-break: keep-all;
+    }
+  }
+  tbody{
+    td{
+      word-break: break-all;
+    }
+  }
+
+}
+
+/**
+* 蓝色皮肤
+**/
+
+
+.h_table_blue{
+    background: #fff;
+    &.childTable{
+      tr{
+        border: 1px solid #dfe3eb;
+      }
+    }
+  .hasChildren{
+    background: #e6f0f0;
+  }
+    tr{
+      border-color: #dfe3eb;
+      &:hover{
+        td{
+          color:#0081c2 !important;
+          cursor: default;
+        }
+        background: #f2f7f7;
+      }
+      &.title{
+        background:#e6f0f0;
+        td{
+          color:#666666;
+        }
+      }
+      &.gray{
+        td{
+          color: #808080;
+        }
+      }
+      td{
+        color:#333333;
+
+      }
+
+    }
+
+  }
+
+
+.skin-blue{
+  .h_table_blue{
+    .h_table_blue();
+  }
+
+}

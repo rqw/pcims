@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title></title>
+     <script src="../../static/js/modular.js" data-config="../../static/js/config.js" data-main="index.platform"></script>
+
+</head>
+<body class="skin-blue">
+
+<!--top sidebar start-->
+<div class="topbar">
+    <div class="logo">
+        <img src="../../static/images/index_logo.png">
+    </div>
+    <div class="split">
+        <span></span>
+    </div>
+    <span class="title">
+        远程医疗协同平台
+    </span>
+</div>
+<!--top sidebar end-->
+
+<!--content start-->
+<div class="content">
+
+    <!--left main menum sidebar start-->
+    <div class="main-sidebar">
+        <div class="toggle">
+            <button class="toggle-btn">
+                <span class="fa fa-indent"></span>
+            </button>
+        </div>
+        <ul data-name="listMenu" class="one-level listMenu">
+            <li>
+                <a>
+                    <span class="left-icon fa fa-home"></span>
+                    <span class="title">首页</span>
+                    <span class="right-icon fa fa-angle-down"></span>
+                </a>
+                <ul class="two-level">
+                    <li class="active">
+                        <a>
+                            <span class="left-icon fa fa-user"></span>
+                            <span class="title">一体机管理系统</span>
+                            <span class="right-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            <span class="left-icon fa fa-user"></span>
+                            <span class="title">远程心电管理系统</span>
+                            <span class="right-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            <span class="left-icon fa fa-user"></span>
+                            <span class="title">二级菜单</span>
+                            <span class="right-icon"></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a>
+                    <span class="left-icon fa fa-cloud"></span>
+                    <span class="title">一级菜单</span>
+                    <span class="right-icon fa fa-angle-down"></span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <!--iframe block start-->
+    <div class="main-content">
+        <div class="main-iframe" id="main-iframe" style="position: relative; top: 0px;">
+            <iframe src="index.html" style="position: absolute;left: 0px;right: 0px;top:0px;bottom: 0px">
+
+            </iframe>
+        </div>
+    </div>
+    <!--iframe block end-->
+
+
+
+</div>
+<!--content end-->
+
+<!--bottom sidebar start-->
+<div class="bottom-bar">
+    <span class="info">技术支持：广东健康在线信息技术股份有限公司 400-960-1028</span>
+</div>
+<!--bottom sidebar end-->
+<!--script>
+
+/**
+    $(function(){
+        resetFrame();
+        $(window).resize(resetFrame);
+    })
+    function resetFrame(){
+        var topHeight=45;
+        var bottomHeight=30;
+        var contentHeight=$(window).height()-topHeight-bottomHeight;
+        $(".content").height(contentHeight);
+        //iframe 父容器高度
+        setIframeParentContainerHeight();
+    }
+    function toggleSider(selector){
+       var isExpanding=$(selector).hasClass("collapse");
+        if(isExpanding){
+            $(selector).removeClass("collapse")
+        }else{
+            $(selector).addClass("collapse")
+        }
+    }
+    $("body").delegate(".main-sidebar .toggle-btn","click",function(){
+        toggleSider(".main-sidebar")
+    })
+    $("body").delegate(".secondary-sidebar-toggle .toggle-btn","click",function(){
+        toggleSider(".secondary-sidebar")
+    })
+    function collapse(){
+
+    }
+    //iframe 父容器高度
+    function setIframeParentContainerHeight(){
+        var topbarHeight=$(".topbar").height();
+        var bottombarHeight=$(".bottom-bar").height();
+        var IframeParentContainerHeight=$(window).height()-topbarHeight-bottombarHeight;
+        $(".main-content").height(IframeParentContainerHeight)
+
+    }
+
+*/
+
+
+
+
+
+
+</script-->
+</body>
+</html>

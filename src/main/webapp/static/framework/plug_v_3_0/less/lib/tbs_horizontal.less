@@ -1,0 +1,196 @@
+@import "../../../../../static/less/variables";
+body {
+  /*background: #d7dbe0;*/
+}
+
+/*标签样式*/
+.tbs_horizontal{
+  overflow: hidden;
+  position: relative;
+  padding-top: 10px;
+  font-size: 10px;
+  height: 45px;
+  padding-right: 45px;
+  *{
+    transition:all 0.2s linear;
+  }
+  .tab{
+    .icon{
+      margin: 0px 5px;
+      color:#666666;
+    }
+  }
+   a,.tab-more-btn{
+     background: #f1f4f4;
+     border-radius: 4px 4px 0px 0px;
+     list-style: none;
+     display: block;
+     float: left;
+     margin: 0px 4px;
+     position: relative;
+     padding: 6px 10px;
+     top: 7px;
+     box-shadow: 0px -2px 10px #bbb;
+     z-index: 1;
+     cursor: default;
+
+     &:hover{
+       transition:all 0.2s linear;
+       padding: 9px 10px;
+       top: 0px;
+     }
+     &.active{
+       top: 0px;
+       padding:8px 10px;
+       z-index: 3;
+       background: #fefefe;
+       .title{
+         font-size: 1.4em;
+       }
+       .close{
+         line-height: 14px;
+         span{
+           font-size: 14px;
+         }
+       }
+     }
+     .title{
+       display: inline-block;
+       min-width: 20px;
+       color: #666666;
+       font-size: 1.2em;
+     }
+     .close{
+       background: none;
+       color: #bbb;
+       outline: none;
+       margin-left: 3px;
+       line-height: 12px;
+       margin-left: 10px;
+       span{
+         font-size: 14px;
+       }
+       &:hover{
+         color:@red
+       }
+     }
+   }
+  .shadow{
+    display: block;
+    width: 100%;
+    height: 38px;
+    background: #ffffff;
+    box-shadow: 0px -5px 0px rgba(187, 187, 187, 0.54);
+    z-index: 2;
+    position: absolute;
+    bottom: -38px;
+    left: 0px;
+  }
+}
+
+.tabsbar{
+  #tab-more-btn{
+    position:absolute;
+    top:16px;
+    right:5px;
+    z-index:999999;
+  }
+  .more{
+    border-radius: 4px 4px 0px 0px;
+    line-height: 0px;
+    height:25px;
+    background: #f1f4f4 !important;
+    outline:none !important;
+  }
+}
+
+
+/*右键选项悬浮容器样式*/
+.mouse_click_optional{
+  position: absolute;
+  background: #fefefe;
+  border-radius: 1px 4px 4px 4px;
+  padding: 8px 8px;
+  box-shadow: 0px 0px 33px #bfbfbf;
+  z-index: 998;
+  display: none;
+  font-size: 10px;
+  z-index: 999999;
+  *{
+    transition:all 0.2s linear;
+  }
+  i{
+    display: block;
+    padding: 6px 12px;
+    font-style: normal;
+    color: #666666;
+    text-align: left;
+    font-size: 1.2em;
+    border-radius: 2px;
+    cursor: default;
+    &:hover{
+      background: #0088cc;
+      color: #fff;
+    }
+  }
+}
+/*标签悬浮容器样式*/
+.h_float_tabs_cntr{
+  width: 150px;
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  padding: 5px 5px !important;
+  display: none;
+  z-index:9999;
+  border: 1px solid #eee;
+  a{
+    border-bottom: 1px #eee solid;
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px #eee solid !important;
+    border-radius: 4px;
+    &:hover{
+      -moz-transform:scale(1.05);
+      -webkit-transform:scale(1.05);
+      -o-transform:scale(1.05);
+      transform:scale(1.05);
+    }
+    .icon {
+      color: #666;
+      font-size: 14px;
+      margin: 0px 8px;
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      vertical-align: top;
+    }
+    .title{
+      color: #555;
+      font-size:14px;
+      display: inline-block;
+      line-height: 30px;
+      height: 30px;
+      width: 95px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &:last-child{
+      border: none;
+    }
+    &:hover{
+      background: #eee;
+    }
+  }
+
+  .remove span{
+    line-height: 30px;
+    height: 30px;
+    display: inline-block;
+    padding: 0px 5px;
+    font-size: 16px;
+  }
+}

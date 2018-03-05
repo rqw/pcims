@@ -1,0 +1,82 @@
+/**
+使用方式 在blue-skin 皮肤下 h_table 呈现 蓝色皮肤，skin-blue皮肤环境下 使用 h_table_blue呈现蓝色皮肤，如需要扩展皮肤在文件底部扩展
+**/
+.h_table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.h_table * {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+.h_table tr {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+.h_table tr td:first-child {
+  padding-left: 30px;
+}
+.h_table tr td:last-child {
+  padding-right: 30px;
+}
+.h_table tr td {
+  font-size: 14px;
+  height: 33px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/**
+* 蓝色皮肤
+**/
+.h_table_blue {
+  background: #fff;
+}
+.h_table_blue tr {
+  border-color: #dfe3eb;
+}
+.h_table_blue tr:hover {
+  background: #f2f7f7;
+}
+.h_table_blue tr:hover td {
+  color: #0081c2 !important;
+  cursor: pointer;
+}
+.h_table_blue tr.title {
+  background: #e6f0f0;
+}
+.h_table_blue tr.title td {
+  color: #666666;
+}
+.h_table_blue tr.gray td {
+  color: #808080;
+}
+.h_table_blue tr td {
+  color: #333333;
+}
+.skin-blue .h_table_blue {
+  background: #fff;
+}
+.skin-blue .h_table_blue tr {
+  border-color: #dfe3eb;
+}
+.skin-blue .h_table_blue tr:hover {
+  background: #f2f7f7;
+}
+.skin-blue .h_table_blue tr:hover td {
+  color: #0081c2 !important;
+  cursor: pointer;
+}
+.skin-blue .h_table_blue tr.title {
+  background: #e6f0f0;
+}
+.skin-blue .h_table_blue tr.title td {
+  color: #666666;
+}
+.skin-blue .h_table_blue tr.gray td {
+  color: #808080;
+}
+.skin-blue .h_table_blue tr td {
+  color: #333333;
+}

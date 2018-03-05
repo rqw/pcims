@@ -1,0 +1,15 @@
+/**
+ * 基础样式
+ **/
+.listMenu * {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+.listMenu a {
+  cursor: pointer;
+}
+.listMenu li > ul {
+  display: none;
+}

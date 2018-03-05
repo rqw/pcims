@@ -1,0 +1,51 @@
+.border{
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  color: #e5e5e5;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+.border-all{
+  content: " ";
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.border(@color){
+  &:after{
+    .border-all();
+  }
+  position: relative;
+  border: 1px solid @color;
+}
+.border-top(@color){
+  position: relative;
+  &:before{
+    .border();
+    top: 0px;
+    border-top: 1px solid @color;
+  }
+}
+.border-bottom(@color){
+  position: relative;
+  &:after{
+    .border();
+    bottom: -1px;/*因为缩放后是约等于2个像素高 缩放后为1个像素高，但实际占用两个像素高，所以要把多余的一个像素抵消*/
+    border-bottom: 1px solid @color;
+
+  }
+}

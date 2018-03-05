@@ -1,0 +1,102 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>请升级您的浏览器 </title>
+
+    <style>
+        *{margin:0;padding:0;font-family:'Microsoft Yahei';box-sizing: border-box;}
+        body{
+            background:#00acec;
+        }
+        .ie-a{color:#eee;font-size:14px;text-decoration:none;}
+        img{border:0;}
+        .ie-a p{line-height:40px;}
+        /*.ie-1-4-box{width:25%;margin:0;padding:0;text-align:center;float:left;}*/
+         .ie-1-4-box{width:100%;margin:0;padding:0;text-align:center;float:left;}
+         .ie-a{
+         	width:25%;
+         }
+    </style>
+
+</head>
+
+<body>
+
+<div id="ie-box" style="width:100%;background:#00acec;margin:0;padding:0 0 0 0;">
+    <center>
+        <div style="width:814px;height:505px;background:url('../../static/images/bg.png') no-repeat;margin:0 auto;">
+            <div style="padding:316px 100px 0 100px;display:inline-block">
+                <!--div class="ie-1-4-box">
+                    <a class="ie-a" href="http://www.google.cn/chrome/browser/desktop/" target="_blank">
+                        <img src="../../static/images/chrome.png" style="width:50%">
+                        <p>Google Chrome</p>
+                    </a>
+                </div>
+                <div class="ie-1-4-box">
+                    <a class="ie-a" href="http://www.firefox.com.cn/" target="_blank">
+                        <img src="../../static/images/firefox.png" style="width:50%">
+                        <p>Mozilla FireFox</p>
+                    </a>
+                </div>
+                <div class="ie-1-4-box">
+                    <a class="ie-a" href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+                        <img src="../../static/images/ie.png" style="width:50%">
+                        <p>IE 11</p>
+                    </a>
+                </div>
+                <div class="ie-1-4-box">
+                    <a class="ie-a" href="http://www.opera.com/zh-cn" target="_blank">
+                        <img src="../../static/images/opera.png" style="width:50%">
+                        <p>Opera</p>
+                    </a>
+                </div-->
+                
+                <div class="ie-1-4-box">
+                    <a class="ie-a" href="http://se.360.cn/" target="_blank">
+                        <img src="../../static/images/360.png" style="width:80px">
+                        <p>360浏览器</p>
+                    </a>
+                </div>  
+            </div>
+            <div style="clear:both"></div>
+            <div style="color:#d9d9d9;font-size:12px;text-align:center;padding-top:20px;">
+
+            </div>
+        </div>
+    </center>
+</div>
+
+<script>
+
+		var H = document.body.clientHeight;
+		var paddingTop = (H - 505) * 0.5;
+		if(paddingTop < 0){ paddingTop = 0 }
+		document.getElementById("ie-box").style.cssText = "width:100%;background:#00acec;height:"+ H +"px;margin:0;padding:"+paddingTop+"px 0 0 0;";
+	
+
+		var lgIE=function(ver){
+			var flag=false;
+			var userAgent=navigator.userAgent;
+			//"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E; InfoPath.3)"
+			var strArr=userAgent.split(";");
+			for(var i=0;i<strArr.length;i++){
+				if(strArr[i].indexOf("MSIE")>-1){
+					var _ver=strArr[i].replace("MSIE","").replace(" ","");
+					console.log("当前IE版本为："+_ver);
+					if(_ver<ver){
+						flag=true;
+					}
+				}
+			}
+			return flag;
+		}
+		
+		if(!lgIE(8)){
+			window.location.href="../../"
+		}
+		
+</script>
+
+</body>
+</html>

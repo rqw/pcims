@@ -1,0 +1,20 @@
+.h_title_top {
+  display: inline-block;
+}
+.h_title_top .line {
+  display: inline-block;
+  width: 3px;
+  height: 10px;
+  background: #0088cc;
+}
+.h_title_top .text {
+  display: inline-block;
+  font-size: 16px;
+  color: #666;
+}
+.skin-blue .h_title_top_blue .line {
+  background: #0088cc;
+}
+.skin-blue .h_title_top_blue .text {
+  color: #666;
+}
