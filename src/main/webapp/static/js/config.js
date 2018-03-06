@@ -24,7 +24,7 @@ loader.urlRewriteSession = false;
 loader.htmlurltimestamp = true;
 //定义第三方库
 var config = {
-	    para: "version=v1.0.1",//+new Date().getTime(),
+	    para: "version=v1.0.2",//+new Date().getTime(),
     js: {
         jquery: "framework/Jquery/jquery.min.js",
         underscore: "framework/underscore.js",

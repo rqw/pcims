@@ -429,7 +429,7 @@ modular.define({name: "index.welcome"}, depends, function () {
             $("#drugInfoSave").click(function(){
                 var drugSavefun=()=>{
                     var supplys=[];
-                    $("#drugInfoForm [name=useId],#drugInfoForm [name=infoId]").val(pid);
+                    $("#drugInfoForm [name=useId],#drugInfoForm [name=infoId]").val($("#prescriptionId").val());
                     $("#drugInfoForm .input-group").each(function(){
                         var _this=$(this);
                         var t=$.hform.data(_this.find("[name]"));
@@ -441,8 +441,7 @@ modular.define({name: "index.welcome"}, depends, function () {
                     });
                     fun_saveDrugInfo(supplys);
                 }
-                var pid=$("#prescriptionId").val()
-                if(!pid){
+                if(!$("#prescriptionId").val()){
                     fun_savePrescription(drugSavefun);
                 }else{
                     drugSavefun();
@@ -452,16 +451,18 @@ modular.define({name: "index.welcome"}, depends, function () {
             });
             //绑定开药选中处方按钮事件
             $("#prescriptionInfoChoiceModal").on("click","button[data-select=newPre]",function(){
-                var info=JSON.parse($(this).prev().html());
+                var _this=$(this);
+                var info=JSON.parse(_this.prev().html());
                 delete info.id;
-                $.each(info.supply,(k,v)=>{v.id=""; })
+                $.each(info.supply,(k,v)=>{v.id=""; });
                 fillPrescription(info,{diagnoseId:$("#diagnoseId").val()},"use",data=>{
                     $("#table_diagnose").bootstrapTable("refresh");
                     fillPrescriptionUse(data.data);
                 },data=>{
-                    var info=JSON.parse(_this.prev().html());
-                    info.supply=data.data;
-                    _this.prev().html(JSON.stringify(info))
+                    var t=$(`#${$("#prescriptionId").val()} .info`);
+                        var info=JSON.parse(t.html());
+                        info.supply=data.data;
+                        t.html(JSON.stringify(info))
                     $("#table_diagnose").bootstrapTable("refresh");
                 });
                 $("#showDrugPage1").click();
@@ -538,6 +539,7 @@ modular.define({name: "index.welcome"}, depends, function () {
                                     success: function(data) {
                                         utils.messageBox.alert({body:"删除成功！"});
                                         _this.parent().parent().remove();
+                                        $("#table_diagnose").bootstrapTable("refresh");
                                     }
                                 });
                             }
@@ -699,7 +701,7 @@ modular.define({name: "index.welcome"}, depends, function () {
                 data:$.extend($.hform.data($("#prescriptionInfoForm [name]")),extend),
                 success:function(data){
                     $("#prescriptionId").val(data.data.id);
-                    utils.messageBox.alert({body:"保存处方信息成功！"});
+                    //utils.messageBox.alert({body:"保存处方信息成功！"});
                     callback(data);
                     callfun(data);
                 }
@@ -713,8 +715,7 @@ modular.define({name: "index.welcome"}, depends, function () {
                 contentType: 'application/json;charset=utf-8',
                 success: function(data) {
                     utils.messageBox.alert({body:"保存成功！"});
-                    $("#prescriptionId").val(data.data.id);
-                    var infoid=data.data.id;
+                    var infoid= $("#prescriptionId").val();
                     $("#drugInfoForm").html("");
                     if(data.data)
                         for(var i=0;i<data.data.length;i++){
@@ -741,7 +742,7 @@ modular.define({name: "index.welcome"}, depends, function () {
                     <input type="hidden" name="id" value="${emptyVal(id,"")}">
                     <input type="hidden" name="unti" value="${emptyVal(drugInfo.unti,"")}" >
                     <input type="hidden" name="aliasName" value="${emptyVal(drugInfo.aliasName,"")}" >
-                    <input type="hidden" name="infoId" value="${emptyVal(infoid,"")}">
+                    <input type="hidden" name="infoId"  value="${emptyVal(infoid,"")}">
                     <input type="hidden" name="useId" value="${emptyVal(infoid,"")}">
                     <input type="hidden" name="drugInfo.id" value="${emptyVal(drugInfo.id,"")}">
                     <span class="input-group-addon empty" ></span>
@@ -767,13 +768,13 @@ modular.define({name: "index.welcome"}, depends, function () {
     }
     var fillPrescriptionUse=function(use){
         $("#prescriptionUseListForm tbody").append(`
-                    <tr>
+                    <tr id="${use.id}">
                         <td>${emptyVal(use.name)}</td>
                         <td>${emptyVal(use.cnt)}</td>
                         <td>${emptyVal(use.cost)}</td>
                         <td>${emptyVal(use.remark)}</td>
                         <td>
-                            <span class="hide">${JSON.stringify(use)}</span>
+                            <span class="hide info">${JSON.stringify(use)}</span>
                             <a href="javascript:;" class="edit" data-toggle="modal" data-target="#prescriptionInfoModal">修改</a>
                             <a href="javascript:;" class="delete" data-id="${use.id}" >删除</a>
                         </td>

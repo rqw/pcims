@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 	<name>pcims</name>
 	<properties>
-		<ghit.version>2.1.5-SNAPSHOT</ghit.version>
+		<ghit.version>2.1.5</ghit.version>
 	</properties>
 
 	<dependencies>
