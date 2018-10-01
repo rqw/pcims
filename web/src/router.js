@@ -11,7 +11,7 @@ const meta = {
     requiresAuth: true,
     keepAlive: true
 };
-let url=location.href.substring(0,location.href.indexOf("/", 9))+"/";
+let url=location.href.substring(0,location.href.indexOf("/", 9))+"/pms/";
 export var rmt = {
     "sysmgr/user": {Frame,src:"html/sysmgr/user.html"},
     "sysmgr/orgParentCode": {Frame,src:"html/sysmgr/orgParentCode.html"},

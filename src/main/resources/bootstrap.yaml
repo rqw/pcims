@@ -1,6 +1,6 @@
 server:
   port: 8080
-  #context-path: /hid
+  context-path: /pms
 lion:
   datasource:
     url: jdbc:oracle:thin:@47.95.144.189:1521:orcl

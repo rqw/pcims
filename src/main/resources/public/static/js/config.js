@@ -1,6 +1,6 @@
 //设置项目部署路径
-loader.staticPath = "/";
-loader.dynamicPath = "/";
+loader.staticPath = "/pms/";
+loader.dynamicPath = "/pms/";
 loader.context.baseUrl = loader.staticPath + "static/";
 loader.context.defaultPath = {
     js: "js/",
