@@ -1,6 +1,6 @@
 package com.skyline.pcims.dao.impl;
 
-import com.ghit.common.mvc.dao.BaseDaoImpl;
+import com.haojiankang.lion.origin.mvc.dao.BaseDaoImpl;
 import com.skyline.pcims.dao.PrescriptionUseDao;
 import com.skyline.pcims.dao.PrescriptionUseSupplyDao;
 import com.skyline.pcims.po.PrescriptionUsePo;

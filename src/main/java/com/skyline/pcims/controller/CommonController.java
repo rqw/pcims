@@ -1,7 +1,9 @@
 package com.skyline.pcims.controller;
 
-import java.util.Map;
-
+import com.haojiankang.lion.origin.SSTO;
+import com.haojiankang.lion.origin.security.RSATools;
+import com.haojiankang.lion.origin.util.BeanUtils;
+import com.haojiankang.lion.sysmgr.util.DataDictionaryUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -9,10 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ghit.basic.sysmgr.utils.DataDictionaryUtils;
-import com.ghit.common.SSTO;
-import com.ghit.common.security.RSATools;
-import com.ghit.common.util.BeanUtils;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/common")

@@ -1,0 +1,26 @@
+spring:
+  http:
+    encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    timeZone: GMT+8
+lion:
+  conf:
+    cache: ehcache
+    i18n: true
+    mvvm: true
+    hibernate: true
+  datasource:
+    maxActive: 100
+  hibernate:
+    show_sql: true
+    packagesToScan:
+      - com.haojiankang.**.po
+      - com.haojiankang.**.entity
+server:
+  tomcat:
+    uri-encoding: UTF-8

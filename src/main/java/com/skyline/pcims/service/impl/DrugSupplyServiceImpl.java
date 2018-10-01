@@ -1,7 +1,7 @@
 package com.skyline.pcims.service.impl;
 
-import com.ghit.common.mvc.dao.BaseDao;
-import com.ghit.common.mvc.service.BaseServiceImpl;
+import com.haojiankang.lion.origin.mvc.dao.BaseDao;
+import com.haojiankang.lion.origin.mvc.service.BaseServiceImpl;
 import com.skyline.pcims.dao.DrugInfoDao;
 import com.skyline.pcims.dao.DrugSupplyDao;
 import com.skyline.pcims.po.DrugInfoPo;

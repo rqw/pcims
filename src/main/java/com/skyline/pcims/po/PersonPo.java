@@ -1,7 +1,7 @@
 package com.skyline.pcims.po;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.ghit.common.mvc.entity.UuidEntity;
+import com.haojiankang.lion.origin.mvc.entity.UuidEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

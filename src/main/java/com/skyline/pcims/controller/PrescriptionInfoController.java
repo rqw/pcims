@@ -1,7 +1,7 @@
 package com.skyline.pcims.controller;
 
-import com.ghit.common.mvc.controller.BaseController;
-import com.ghit.common.mvc.service.BaseService;
+import com.haojiankang.lion.origin.mvc.controller.BaseController;
+import com.haojiankang.lion.origin.mvc.service.BaseService;
 import com.skyline.pcims.po.PrescriptionInfoPo;
 import com.skyline.pcims.po.PrescriptionInfoSupplyPo;
 import com.skyline.pcims.service.PrescriptionInfoService;

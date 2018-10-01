@@ -1,6 +1,6 @@
 package com.skyline.pcims.po;
 
-import com.ghit.common.mvc.entity.UuidEntity;
+import com.haojiankang.lion.origin.mvc.entity.UuidEntity;
 
 import javax.persistence.*;
 

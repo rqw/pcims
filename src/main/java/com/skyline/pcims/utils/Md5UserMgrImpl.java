@@ -7,22 +7,17 @@
 
 package com.skyline.pcims.utils;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.haojiankang.lion.origin.Sharp;
+import com.haojiankang.lion.origin.security.model.IUser;
+import com.haojiankang.lion.origin.security.model.SecurityUser;
+import com.haojiankang.lion.origin.util.StringUtil;
+import com.haojiankang.lion.sysmgr.pojo.po.User;
+import com.haojiankang.lion.sysmgr.service.UserMgr;
+import com.haojiankang.lion.sysmgr.service.UserService;
+import com.haojiankang.lion.sysmgr.util.SharpSysmgr;
 import org.springframework.stereotype.Service;
 
-import com.ghit.basic.sysmgr.pojo.po.User;
-import com.ghit.basic.sysmgr.service.UserMgr;
-import com.ghit.basic.sysmgr.service.UserService;
-import com.ghit.basic.sysmgr.utils.SharpSysmgr;
-import com.ghit.common.Sharp;
-import com.ghit.common.security.SecurityCoreManager;
-import com.ghit.common.security.Session;
-import com.ghit.common.security.model.SecurityUser;
-import com.ghit.common.util.StringUtil;
-import com.ghit.usis.usms.client.UsmsClientService;
+import javax.annotation.Resource;
 
 /**
  * ClassName:SystemTypeLogin <br>
@@ -35,12 +30,12 @@ import com.ghit.usis.usms.client.UsmsClientService;
  * @see
  */
 @Service("md5UserMgr")
-public class Md5UserMgrImpl implements UserMgr, UsmsClientService {
+public class Md5UserMgrImpl implements UserMgr {
 	@Resource
 	protected UserService service;
 
 	@Override
-	public com.ghit.common.security.model.IUser login(User user) {
+	public IUser login(User user) {
 		SecurityUser currentUser = null;
 		User findUser = service.findUsersByName(user.getUserName());
 		if (findUser == null)
@@ -60,7 +55,7 @@ public class Md5UserMgrImpl implements UserMgr, UsmsClientService {
 		User user = service.findById(usrIn);
 		if (!StringUtil.eq(user.getPassword(),
 				Sharp.UrlRSAToHash(oldPwd, String.valueOf(user.getCreateTime().getTime())))) {
-			Sharp.error("原密码不正确，请检查你的输入，修改密码不成功!");
+			Sharp.message("原密码不正确，请检查你的输入，修改密码不成功!");
 			return false;
 		}
 		user.setPassword(Sharp.UrlRSADecrypt(newPwd));
@@ -79,7 +74,7 @@ public class Md5UserMgrImpl implements UserMgr, UsmsClientService {
 			SharpSysmgr.userPwdMd5(findUser);
 			status = true;
 		} else {
-			Sharp.error("输入的邮箱信息和注册的邮箱信息不符，不能重置密码。\r\n如有疑问请联系系统管理员。");
+			Sharp.message("输入的邮箱信息和注册的邮箱信息不符，不能重置密码。\r\n如有疑问请联系系统管理员。");
 		}
 		return status;
 	}
@@ -88,24 +83,5 @@ public class Md5UserMgrImpl implements UserMgr, UsmsClientService {
 		return Long.toString(System.currentTimeMillis() / 8 * 9, 16);
 	}
 
-	@Override
-	public boolean loginByName(String loginName, String token, HttpServletRequest request,
-			HttpServletResponse response) {
-		User findUser = service.findUsersByName(loginName);
-		if (findUser != null) {
-			SecurityUser currentUser = SharpSysmgr.convertUser(findUser);
-			Session currentSession = Sharp.getCurrentSession(request, response);
-			currentSession.currentUser(currentUser);
-			currentSession.token(token);
-			return true;
-		}
-		return true;
-	}
-
-	@Override
-	public boolean loginOutByToken(String token) {
-		SecurityCoreManager.manager().getSessionManager().getSessionByToken(token).currentUser(null);
-		return true;
-	}
 
 }

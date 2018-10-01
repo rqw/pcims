@@ -1,0 +1,8 @@
+server:
+  port: 8080
+  #context-path: /hid
+lion:
+  datasource:
+    url: jdbc:oracle:thin:@47.95.144.189:1521:orcl
+    username: PMS
+    password: PMS

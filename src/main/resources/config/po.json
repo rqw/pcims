@@ -1,3 +1,27 @@
 [
-	
+	{
+		superClass:"com.haojiankang.lion.sysmgr.pojo.po.User",
+		tableName:"HJK_SYS_USER",
+		property:{
+			"doctcode":"@String",
+			"properties":"@String",
+			"qq":"@String",
+			"identifyno":"@String",
+			"httpClientAlias@com.haojiankang.lion.origin.mvc.DbOnly(group=帐号已经存在)@javax.persistence.Column(name=area)":"@String",
+			"userName@com.haojiankang.lion.origin.mvc.DbOnly(group=帐号已经存在)":"@String"
+		}
+		
+	},
+	{
+		superClass:"com.haojiankang.lion.sysmgr.pojo.po.Organization",
+		tableName:"HJK_SYS_ORGANIZATION",
+		property:{
+			"phone":"@String",
+			"contact_person":"@String",
+			"address":"@String",
+			"httpClientAlias@com.haojiankang.lion.origin.mvc.DbOnly(group=机构编码已经存在)@javax.persistence.Column(name=area)":"@String",
+			"code@com.haojiankang.lion.origin.mvc.DbOnly(group=机构编码已经存在)":"@String"
+		}
+		
+	}
 ]
