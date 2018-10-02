@@ -7,7 +7,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication(scanBasePackages = {"com.haojiankang.lion", "com.haojiankang.pms"})
-@ServletComponentScan(basePackages = {"com.haojiankang.lion", "com.haojiankang.pms"})
 @EnableScheduling
 @EnableCaching
 public class PmsApplication {

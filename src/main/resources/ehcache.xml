@@ -98,12 +98,9 @@
     <!-- 设定缓存的默认数据过期策略 -->
     <defaultCache
             maxEntriesLocalHeap="10000"
-            eternal="false"
-            timeToIdleSeconds="0"
-            timeToLiveSeconds="0"
+            eternal="true"
             overflowToDisk="false"
-            diskPersistent="true"
-            diskExpiryThreadIntervalSeconds="120"/>
+			diskSpoolBufferSizeMB="200"/>
 
 	<!-- 用户对象缓存 -->
     <cache name="user" maxEntriesLocalHeap="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="28800" overflowToDisk="false"/>
