@@ -1,64 +1,77 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
         <groupId>com.haojiankang</groupId>
         <artifactId>lion-starter-parent</artifactId>
         <version>1.0.0</version>
-	</parent>
-	<artifactId>pms</artifactId>
-	<packaging>jar</packaging>
-	<name>pms</name>
-	<properties>
-		<haojiankang.version>2.3.0-SNAPSHOT</haojiankang.version>
-	</properties>
+    </parent>
+    <artifactId>pms</artifactId>
+    <packaging>jar</packaging>
+    <name>pms</name>
+    <properties>
+        <haojiankang.version>2.3.0-SNAPSHOT</haojiankang.version>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.haojiankang</groupId>
-			<artifactId>aum-api</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.haojiankang</groupId>
-			<artifactId>lion-sysmgr</artifactId>
-			<version>${haojiankang.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.haojiankang</groupId>
-			<artifactId>lion-statistics</artifactId>
-			<version>${haojiankang.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.haojiankang</groupId>
-			<artifactId>lion-workflow</artifactId>
-			<version>${haojiankang.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.haojiankang</groupId>
-			<artifactId>lion-websocket</artifactId>
-			<version>${haojiankang.version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itextpdf</artifactId>
-			<version>5.5.11</version>
-		</dependency>
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itext-asian</artifactId>
-			<version>5.2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.rar</groupId>
-			<artifactId>unrar</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>ant</groupId>
-			<artifactId>ant</artifactId>
-			<version>1.7.0</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.haojiankang</groupId>
+            <artifactId>aum-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haojiankang</groupId>
+            <artifactId>lion-sysmgr</artifactId>
+            <version>${haojiankang.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haojiankang</groupId>
+            <artifactId>lion-statistics</artifactId>
+            <version>${haojiankang.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haojiankang</groupId>
+            <artifactId>lion-workflow</artifactId>
+            <version>${haojiankang.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haojiankang</groupId>
+            <artifactId>lion-websocket</artifactId>
+            <version>${haojiankang.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.11</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-asian</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rar</groupId>
+            <artifactId>unrar</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>haojiankang</id>
+            <name>haojiankang Repository</name>
+            <url>http://maven.haojiankang.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
 </project>
