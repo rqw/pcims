@@ -102,21 +102,4 @@
             overflowToDisk="false"
 			diskSpoolBufferSizeMB="200"/>
 
-	<!-- 用户对象缓存 -->
-    <cache name="user" maxEntriesLocalHeap="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="28800" overflowToDisk="false"/>
-    <cache name="static" maxEntriesLocalHeap="100" eternal="true"  overflowToDisk="false"/>
-    <cache name="scMap" maxEntriesLocalHeap="400" eternal="false" timeToIdleSeconds="43200" timeToLiveSeconds="43200" overflowToDisk="false"/>
-	<!-- OAuth2缓存 -->
-	<cache name="auth_code" maxEntriesLocalHeap="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="28800" overflowToDisk="false"/>
-	<cache name="access_token" maxEntriesLocalHeap="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="28800" overflowToDisk="false"/>
-	<cache name="refresh_token" maxEntriesLocalHeap="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="28800" overflowToDisk="false"/>
-	<!-- 通用查询统计缓存 -->
-	<cache name="templateList" maxEntriesLocalHeap="30" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="28800" overflowToDisk="false"/>
-	<cache name="templateDetail" maxEntriesLocalHeap="30" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="28800" overflowToDisk="false"/>
-	
-	<!-- 自动结束体检缓存 -->
-	<cache name="checkConfirm" maxEntriesLocalHeap="2000" eternal="false" timeToIdleSeconds="86400" timeToLiveSeconds="86400" overflowToDisk="false"/> 
-	
-	<!-- 体检数据导入分析信息缓存 -->
-	<cache name="arch.checkImport.analysis" maxEntriesLocalHeap="2000" eternal="false" timeToIdleSeconds="86400" timeToLiveSeconds="86400" overflowToDisk="false"/> 
 </ehcache>
